@@ -16,16 +16,20 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(origin),
-    title: "Content Bridge | استراتژی و انتشار هوشمند محتوا",
-    description: "استراتژی محتوا، برنامه‌ریزی و انتشار هوشمند برای وردپرس؛ با متا، تگ، تصویر و لینک‌سازی کامل.",
-    keywords: ["استراتژی محتوا", "تولید محتوا", "انتشار خودکار وردپرس", "سئو محتوا", "GEO"],
+    title: "محتواساز خودکار وردپرس | Content Bridge",
+    description: "تولید و انتشار خودکار محتوای وردپرس با استراتژی، تحقیق کلمات کلیدی، تصویر، متا، تگ، لینک‌سازی و سئوی کامل. آشنایی با پلن‌های Content Bridge.",
+    keywords: ["محتواساز خودکار", "تولید محتوای خودکار", "تولید محتوا با هوش مصنوعی", "انتشار خودکار وردپرس", "ساخت مقاله خودکار", "اتوماسیون محتوا", "سئو محتوا", "GEO"],
     authors: [{ name: "ویرا وب آریا" }],
     creator: "ویرا وب آریا",
-    alternates: { canonical: origin },
+    alternates: {
+      canonical: origin,
+      languages: { "fa-IR": origin, "en-US": `${origin}/en`, "x-default": origin },
+    },
     openGraph: {
       title: "Content Bridge | استراتژی را ما می‌سازیم؛ محتوا خودش منتشر می‌شود",
       description: "از شناخت سایت و برنامه‌ریزی تا انتشار منظم محتوا در وردپرس.",
       locale: "fa_IR",
+      alternateLocale: ["en_US"],
       type: "website",
       siteName: "Content Bridge",
       url: origin,

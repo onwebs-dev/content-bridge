@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { useScrollReveal } from "./useScrollReveal";
 
 const processSteps = [
   {
@@ -133,6 +134,7 @@ const faqs = [
 type FormStatus = "idle" | "sending" | "success" | "error";
 
 export default function Home() {
+  useScrollReveal();
   const [selectedPlan, setSelectedPlan] = useState("نقره‌ای");
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
@@ -174,7 +176,43 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main className="lang-fa">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "Content Bridge — محتواساز خودکار وردپرس",
+            alternateName: "سرویس تولید و انتشار خودکار محتوا",
+            description: "استراتژی محتوا، تحقیق کلمات کلیدی، برنامه‌ریزی و تولید و انتشار خودکار مقاله در وردپرس با تکمیل فیلدهای سئو.",
+            provider: { "@type": "Organization", name: "ویرا وب آریا", email: "ceo@onwebs.ir" },
+            areaServed: "IR",
+            serviceType: ["تولید محتوای خودکار", "اتوماسیون محتوای وردپرس", "سئو محتوا", "GEO"],
+            offers: plans.map((plan, index) => ({
+              "@type": "Offer",
+              name: `پلن ${plan.name} Content Bridge`,
+              price: ["50000000", "100000000", "150000000"][index],
+              priceCurrency: "IRR",
+              description: plan.description,
+            })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: { "@type": "Answer", text: faq.a },
+            })),
+          }),
+        }}
+      />
       <nav className="nav" aria-label="ناوبری اصلی">
         <div className="container nav-inner">
           <a className="brand" href="#top" aria-label="کانتنت بریج، صفحه اصلی">
@@ -187,6 +225,7 @@ export default function Home() {
             <a href="#pricing">پلن‌ها</a>
             <a href="#faq">پرسش‌ها</a>
           </div>
+          <a className="language-switch" href="/en" hrefLang="en" aria-label="View the English version">EN</a>
           <a className="button button-small" href="#contact">شروع پروژه <span aria-hidden="true">←</span></a>
         </div>
       </nav>
@@ -195,10 +234,10 @@ export default function Home() {
         <div className="hero-glow" aria-hidden="true" />
         <div className="container hero-grid">
           <div className="hero-copy reveal">
-            <span className="pill"><i /> استراتژی محتوا و انتشار هوشمند برای وردپرس</span>
+            <span className="pill"><i /> محتواساز خودکار و استراتژی محتوای وردپرس</span>
             <h1>استراتژی را ما می‌سازیم؛<br /><em>محتوا خودش منتشر می‌شود.</em></h1>
             <p>
-              سایت را می‌شناسیم، مسیر کلمات کلیدی را طراحی می‌کنیم و یک تقویم محتوایی قابل اجرا می‌سازیم؛ سپس Content Bridge همه‌چیز را با تصویر، متا، تگ و لینک‌های درست، سر وقت منتشر می‌کند.
+              Content Bridge یک محتواساز خودکار ساده نیست؛ سایت را می‌شناسیم، مسیر کلمات کلیدی و تقویم را می‌سازیم، سپس مقاله‌ها با تصویر، متا، تگ و لینک‌های درست، سر وقت در وردپرس منتشر می‌شوند.
             </p>
             <div className="hero-actions">
               <a className="button" href="#pricing">مشاهده پلن‌ها <span aria-hidden="true">←</span></a>

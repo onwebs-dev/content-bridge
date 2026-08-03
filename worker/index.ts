@@ -139,41 +139,44 @@ async function sendSmtpMail(password: string, subject: string, replyTo: string, 
 }
 
 async function handleContact(request: Request, env: Env) {
-  if (request.method !== "POST") return json("متد درخواست معتبر نیست.", 405);
-  if (!request.headers.get("content-type")?.includes("application/json")) return json("فرمت درخواست معتبر نیست.", 415);
-  if (!env.SMTP_PASSWORD) return json("ارسال ایمیل هنوز روی سرور فعال نشده است.", 503);
+  const isEnglish = new URL(request.url).searchParams.get("lang") === "en";
+  const localized = (fa: string, en: string) => isEnglish ? en : fa;
+  if (request.method !== "POST") return json(localized("متد درخواست معتبر نیست.", "This request method is not supported."), 405);
+  if (!request.headers.get("content-type")?.includes("application/json")) return json(localized("فرمت درخواست معتبر نیست.", "The request format is not valid."), 415);
+  if (!env.SMTP_PASSWORD) return json(localized("ارسال ایمیل هنوز روی سرور فعال نشده است.", "Email delivery has not been enabled on the server yet."), 503);
 
   let payload: ContactPayload;
   try {
     payload = await request.json() as ContactPayload;
   } catch {
-    return json("اطلاعات فرم قابل خواندن نیست.", 400);
+    return json(localized("اطلاعات فرم قابل خواندن نیست.", "We could not read the form data."), 400);
   }
 
-  if (clean(payload.company_site, 100)) return json("درخواست شما ثبت شد.");
+  if (clean(payload.company_site, 100)) return json(localized("درخواست شما ثبت شد.", "Your request has been received."));
   const startedAt = Number(payload.startedAt);
-  if (!Number.isFinite(startedAt) || Date.now() - startedAt < 1800) return json("لطفاً فرم را با دقت کامل کنید.", 400);
+  if (!Number.isFinite(startedAt) || Date.now() - startedAt < 1800) return json(localized("لطفاً فرم را با دقت کامل کنید.", "Please take a moment to complete the form carefully."), 400);
 
   const name = clean(payload.name, 80);
   const phone = clean(payload.phone, 30);
   const email = clean(payload.email, 120).toLowerCase();
   const website = clean(payload.website, 160);
   const plan = clean(payload.plan, 60) || "نیاز به مشاوره";
-  const geo = clean(payload.geo, 10) === "بله" ? "بله (+۵ میلیون تومان)" : "خیر";
+  const geoValue = clean(payload.geo, 10).toLowerCase();
+  const geo = geoValue === "بله" || geoValue === "yes" ? "بله (+۵ میلیون تومان)" : "خیر";
   const message = clean(payload.message, 1200);
 
   if (name.length < 2 || phone.length < 7 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return json("لطفاً نام، شماره تماس و ایمیل معتبر وارد کنید.", 400);
+    return json(localized("لطفاً نام، شماره تماس و ایمیل معتبر وارد کنید.", "Please enter a valid name, phone number and email address."), 400);
   }
 
   const html = `<!doctype html><html lang="fa" dir="rtl"><body style="margin:0;background:#faf8f3;font-family:Tahoma,Arial,sans-serif;color:#171614"><div style="max-width:640px;margin:32px auto;background:#fff;border:1px solid #e7e2d8;border-radius:16px;overflow:hidden"><div style="background:#1e211f;color:#fff;padding:28px 32px"><div style="color:#e9a48c;font-size:12px">Content Bridge</div><h1 style="font-size:22px;margin:6px 0 0">درخواست جدید شروع پروژه</h1></div><div style="padding:30px 32px"><table style="border-collapse:collapse;width:100%;font-size:14px;line-height:1.8"><tr><td style="padding:8px 0;color:#6c6963;width:145px">نام</td><td style="padding:8px 0;font-weight:bold">${escapeHtml(name)}</td></tr><tr><td style="padding:8px 0;color:#6c6963">شماره تماس</td><td style="padding:8px 0" dir="ltr">${escapeHtml(phone)}</td></tr><tr><td style="padding:8px 0;color:#6c6963">ایمیل</td><td style="padding:8px 0" dir="ltr">${escapeHtml(email)}</td></tr><tr><td style="padding:8px 0;color:#6c6963">وب‌سایت</td><td style="padding:8px 0" dir="ltr">${escapeHtml(website || "—")}</td></tr><tr><td style="padding:8px 0;color:#6c6963">پلن</td><td style="padding:8px 0">${escapeHtml(plan)}</td></tr><tr><td style="padding:8px 0;color:#6c6963">افزودنی GEO</td><td style="padding:8px 0">${geo}</td></tr></table><div style="margin-top:20px;padding:18px;background:#f6e7df;border-radius:10px"><div style="font-size:11px;color:#a94f34;font-weight:bold;margin-bottom:6px">توضیحات متقاضی</div><div style="white-space:pre-wrap;font-size:14px">${escapeHtml(message || "توضیحی ثبت نشده است.")}</div></div><p style="font-size:11px;color:#8a877f;margin:24px 0 0">برای پاسخ مستقیم، روی Reply بزنید؛ پاسخ به ${escapeHtml(email)} ارسال می‌شود.</p></div></div></body></html>`;
 
   try {
     await sendSmtpMail(env.SMTP_PASSWORD, `درخواست ${plan} — ${name}`, email, html);
-    return json("درخواست شما با موفقیت ارسال شد.");
+    return json(localized("درخواست شما با موفقیت ارسال شد.", "Your request was sent successfully."));
   } catch (error) {
     console.error("Contact email failed", error instanceof Error ? error.message : error);
-    return json("ارسال فرم موقتاً انجام نشد؛ لطفاً چند دقیقه دیگر دوباره تلاش کنید.", 502);
+    return json(localized("ارسال فرم موقتاً انجام نشد؛ لطفاً چند دقیقه دیگر دوباره تلاش کنید.", "We could not send the form right now. Please try again in a few minutes."), 502);
   }
 }
 
