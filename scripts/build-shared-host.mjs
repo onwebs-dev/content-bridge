@@ -315,7 +315,7 @@ $email = strtolower(limited_text($payload['email'] ?? '', 120));
 $website = limited_text($payload['website'] ?? '', 160);
 $plan = limited_text($payload['plan'] ?? '', 60) ?: $t('نیاز به مشاوره', 'Needs consultation');
 $geoValue = strtolower(limited_text($payload['geo'] ?? '', 10));
-$geo = in_array($geoValue, ['بله', 'yes'], true) ? 'بله (+۵ میلیون تومان)' : 'خیر';
+$geo = in_array($geoValue, ['بله', 'yes'], true) ? 'بله (+۱۰ میلیون تومان)' : 'خیر';
 $notes = limited_text($payload['message'] ?? '', 1200);
 
 if (strlen($name) < 2 || strlen($phone) < 7 || !filter_var($email, FILTER_VALIDATE_EMAIL)) {

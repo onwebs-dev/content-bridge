@@ -563,7 +563,7 @@ export default function Home() {
               <p>ساختار پاسخ‌محور، پرسش‌های واقعی، بلوک‌های قابل استناد و داده‌های شفاف؛ تا محتوای شما برای دیده‌شدن در ChatGPT، Gemini و پاسخ‌های هوش مصنوعی آماده‌تر باشد.</p>
               <div className="geo-tags"><span>پاسخ مستقیم</span><span>ساختار پرسش‌محور</span><span>Entity و Schema</span><span>بخش‌های قابل نقل</span></div>
             </div>
-            <div className="geo-price"><strong>+۵</strong><span>میلیون تومان<br />در ماه</span></div>
+            <div className="geo-price"><strong>+۱۰</strong><span>میلیون تومان<br />در ماه</span></div>
           </div>
           <p className="pricing-note">هزینه‌ها ماهانه‌اند. دامنه دقیق خدمات و ریتم انتشار پس از بررسی اولیه سایت نهایی می‌شود.</p>
         </div>
@@ -603,7 +603,7 @@ export default function Home() {
               <label><span>آدرس سایت</span><input name="website" inputMode="url" placeholder="example.com" maxLength={160} dir="ltr" /></label>
             </div>
             <label><span>پلن موردنظر</span><select name="plan" value={selectedPlan} onChange={(event) => setSelectedPlan(event.target.value)}><option>پایه</option><option>حرفه‌ای</option><option>کامل</option><option>برای انتخاب نیاز به مشاوره دارم</option></select></label>
-            <label className="check-field"><input type="checkbox" name="geo" value="بله" /><span><b>افزودنی GEO را هم می‌خواهم</b><small>ماهانه ۵ میلیون تومان به پلن اضافه می‌شود.</small></span></label>
+            <label className="check-field"><input type="checkbox" name="geo" value="بله" /><span><b>افزودنی GEO را هم می‌خواهم</b><small>ماهانه ۱۰ میلیون تومان به پلن اضافه می‌شود.</small></span></label>
             <label><span>درباره وضعیت فعلی محتوا یا هدفتان بنویسید</span><textarea name="message" rows={4} maxLength={1200} placeholder="مثلاً ماهانه چند محتوا منتشر می‌کنید و مهم‌ترین چالش شما چیست؟" /></label>
             <input className="honey" name="company_site" tabIndex={-1} autoComplete="off" aria-hidden="true" />
             <button className="button submit-button" type="submit" disabled={status === "sending"}>{status === "sending" ? "در حال ارسال…" : "ارسال درخواست و شروع گفتگو"}<span aria-hidden="true">←</span></button>

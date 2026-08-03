@@ -21,6 +21,7 @@ test("keeps the Persian and English sales messages aligned", async () => {
   assert.match(persian, /price: "۹"/);
   assert.match(persian, /price: "۱۲"/);
   assert.match(persian, /price: "۱۷"/);
+  assert.match(persian, /\+۱۰/);
   assert.match(persian, /در هر سه پلن، بدون استثنا/);
   assert.match(persian, /مسیر شش‌ماهه/);
   assert.match(persian, /۷۹٫۵٪/);
@@ -32,6 +33,7 @@ test("keeps the Persian and English sales messages aligned", async () => {
   assert.match(english, /price: "9"/);
   assert.match(english, /price: "12"/);
   assert.match(english, /price: "17"/);
+  assert.match(english, /\+10/);
   assert.match(english, /Included in every plan/);
   assert.match(english, /The first six months/);
   assert.match(english, /79\.5%/);
