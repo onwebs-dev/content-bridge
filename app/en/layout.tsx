@@ -36,13 +36,13 @@ export async function generateMetadata(): Promise<Metadata> {
       type: "website",
       siteName: "Content Bridge",
       url: pageUrl,
-      images: [{ url: `${origin}/og-en.png`, width: 1727, height: 911, alt: "Content Bridge automated content workflow" }],
+      images: [{ url: `${origin}/og-en.jpg`, width: 1200, height: 633, alt: "Content Bridge automated content workflow" }],
     },
     twitter: {
       card: "summary_large_image",
       title: "Automated WordPress Content Creation | Content Bridge",
       description: "Strategy, keyword research, editorial planning and automated publishing—managed as one content engine.",
-      images: [`${origin}/og-en.png`],
+      images: [`${origin}/og-en.jpg`],
     },
   };
 }

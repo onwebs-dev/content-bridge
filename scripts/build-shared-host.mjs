@@ -36,7 +36,7 @@ function cleanHtml(source, locale) {
   const isEnglish = locale === "en";
   const assetPrefix = isEnglish ? "../assets/" : "assets/";
   const pageUrlPhp = isEnglish ? "$siteUrl . '/en/'" : "$siteUrl . '/'";
-  const imagePhp = isEnglish ? "$siteUrl . '/assets/og-en.png'" : "$siteUrl . '/assets/og.png'";
+  const imagePhp = isEnglish ? "$siteUrl . '/assets/og-en.jpg'" : "$siteUrl . '/assets/og.jpg'";
 
   if (isEnglish) {
     html = html.replace('<html lang="fa" dir="rtl">', '<html lang="en" dir="ltr">');
@@ -44,8 +44,8 @@ function cleanHtml(source, locale) {
 
   html = html
     .replace('src="/banner-examples.webp"', `src="${assetPrefix}banner-examples.webp"`)
-    .replace("http://localhost:3000/og-en.png", `<?= cb_e(${imagePhp}) ?>`)
-    .replace("http://localhost:3000/og.png", `<?= cb_e(${imagePhp}) ?>`)
+    .replace("http://localhost:3000/og-en.jpg", `<?= cb_e(${imagePhp}) ?>`)
+    .replace("http://localhost:3000/og.jpg", `<?= cb_e(${imagePhp}) ?>`)
     .replace(/<meta property="og:url" content="http:\/\/localhost:3000(?:\/en)?"\/>/, `<meta property="og:url" content="<?= cb_e(${pageUrlPhp}) ?>"/>`)
     .replace(/<link rel="canonical" href="http:\/\/localhost:3000(?:\/en)?"\/>/, `<link rel="canonical" href="<?= cb_e(${pageUrlPhp}) ?>"/>`)
     .replace(/<link rel="alternate" hrefLang="fa-IR" href="http:\/\/localhost:3000"\/>/, '<link rel="alternate" hreflang="fa-IR" href="<?= cb_e($siteUrl . \'/\') ?>"/>')
@@ -446,8 +446,8 @@ await writeFile(path.join(assetsDir, "site.js"), siteJs, "utf8");
 for (const name of assetNames.filter((name) => /\.woff2?$/.test(name))) {
   await cp(path.join(builtAssetsDir, name), path.join(assetsDir, name));
 }
-await cp(path.join(projectDir, "public", "og.png"), path.join(assetsDir, "og.png"));
-await cp(path.join(projectDir, "public", "og-en.png"), path.join(assetsDir, "og-en.png"));
+await cp(path.join(projectDir, "public", "og.jpg"), path.join(assetsDir, "og.jpg"));
+await cp(path.join(projectDir, "public", "og-en.jpg"), path.join(assetsDir, "og-en.jpg"));
 await cp(path.join(projectDir, "public", "banner-examples.webp"), path.join(assetsDir, "banner-examples.webp"));
 await cp(path.join(projectDir, "public", "downloads", "content-bridge-2.1.0.zip"), path.join(downloadsDir, "content-bridge-2.1.0.zip"));
 
