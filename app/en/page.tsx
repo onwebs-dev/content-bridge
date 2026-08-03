@@ -21,27 +21,64 @@ const features = [
 
 const plans = [
   {
-    name: "Essential",
-    eyebrow: "Consistent publishing",
-    price: "10",
-    description: "For businesses ready to turn an occasional blog into a dependable publishing operation.",
-    features: ["Dedicated site connection and setup", "Monthly editorial calendar", "Brand voice, audience and CTA rules", "Topic, intent, tag and category detection", "Scheduled WordPress blog publishing", "Cover image and essential SEO fields", "Duplicate protection and run reports"],
+    name: "Base",
+    eyebrow: "A professional start",
+    price: "9",
+    description: "For businesses that want a consistently published blog built on sound strategy and complete SEO.",
+    features: ["Complete structural, content and technical site audit", "Competitor review and content-gap analysis", "Keyword research and SERP-overlap clustering", "Search-intent analysis and article-format selection", "Dated six-month editorial calendar", "A dedicated brief for every article", "Plugin installation and site configuration", "Hosting and server compatibility fixes", "Automated, scheduled WordPress publishing", "Complete Yoast, Rank Math, SEOPress or AIOSEO fields", "SEO title, meta description and primary and secondary keywords", "Intent-aware categories and tags, created when missing", "Purposeful internal links inside sentences", "FAQ section with FAQPage schema", "Duplicate control through a unique article ID", "Transparent execution and error reports", "Monthly review and course correction"],
   },
   {
-    name: "Silver",
-    eyebrow: "Multi-channel presence",
-    price: "15",
+    name: "Professional",
+    eyebrow: "The strongest value",
+    price: "12",
     featured: true,
-    description: "For brands that want their website and LinkedIn to grow with one consistent editorial voice.",
-    features: ["Everything in Essential", "Complete article publishing on your site", "LinkedIn page connection and setup", "Article-to-LinkedIn post adaptation", "Scheduled LinkedIn publishing", "Cross-channel tone consistency", "Monthly calendar review and refinement"],
+    description: "Everything in Base, plus a bespoke featured banner for every article using your brand's visual identity.",
+    features: ["Everything in Base", "A bespoke banner using your palette and type system", "A topic-specific composition—never a repeated image", "Theme-safe dimensions with no cropped headline", "Optimised social-preview format", "Descriptive alt text for SEO and accessibility", "Automatic media-library registration with title and description", "Open Graph setup for accurate sharing previews", "A dedicated brand visual kit built during onboarding", "Image-size optimisation for faster pages"],
   },
   {
-    name: "Gold",
-    eyebrow: "Professional organic growth",
-    price: "20",
-    description: "For teams that need a serious SEO programme behind their automated content creation.",
-    features: ["Everything in Silver", "Professional content and SEO audit", "Deep keyword research and clustering", "Topic architecture and internal-link map", "Metadata, schema and article optimisation", "Opportunity monitoring and calendar steering", "Monthly analysis and strategy session"],
+    name: "Complete",
+    eyebrow: "Multi-channel presence",
+    price: "17",
+    description: "Everything in Professional, plus automated LinkedIn publishing with platform-native tone and timing.",
+    features: ["Everything in Professional", "Complete LinkedIn connection and setup", "A standalone post for every article—not a list summary", "A LinkedIn-native caption in the article author's voice", "A distinct opening hook for every post", "Correct link-preview card and image", "Audience-aware publishing schedule", "Consistent voice across site and social", "Topic-relevant hashtag selection", "Ongoing LinkedIn access renewal and management", "Multiple authors on separate profiles", "Publishing report across both channels"],
   },
+];
+
+const sharedPlanFeatures = ["Complete audit and strategy", "Keyword research", "Six-month calendar", "Plugin installation and setup", "Complete SEO fields", "Duplicate protection", "Transparent execution reports", "Monthly review and course correction"];
+
+const labourRows = [
+  ["Audit, keyword research and strategy", "Drafting the article"],
+  ["The six-month plan and every brief", "Following the brief"],
+  ["The facts file and permitted claims", "Staying inside those facts"],
+  ["Author assignment and voice", "Writing in that voice"],
+  ["Cadence and priority decisions", "Publishing on schedule"],
+  ["Reading algorithm updates", "—"],
+  ["Monthly review and course correction", "—"],
+];
+
+const agentCapabilities = [
+  ["Checks the moment, not just the calendar", "It follows the plan, but can cover a genuinely relevant breaking topic first and return to the calendar afterwards."],
+  ["Refuses to invent facts", "Every number must come from your approved facts file. Without a verified figure, it writes qualitatively instead."],
+  ["Writes in a real person's voice", "The author is selected by subject and genuine project experience shapes the voice and closing perspective."],
+  ["Varies its rhythm", "Sentence length, paragraph openings and closing register change deliberately so the output does not read like a template."],
+  ["Links internally with intent", "Service pages and related articles are linked from inside useful sentences—not dumped into an unrelated block."],
+  ["Knows what it may not touch", "The agent drafts; deterministic, reportable scripts control publishing, archiving and calendar updates."],
+];
+
+const sixMonthSteps = [
+  ["Month 1", "Foundation", "The connection and full test are complete, the calendar starts running and publishing no longer depends on manual reminders."],
+  ["Month 2", "Indexation and first signals", "Pages enter the index and Search Console begins surfacing long-tail and question-shaped queries."],
+  ["Month 3", "Topical shape", "Internal links gather articles around core services, turning isolated pages into visible topic clusters."],
+  ["Months 4–5", "Compounding", "Older content produces data, service pages benefit from purposeful links and the next month's direction becomes more precise."],
+  ["Month 6", "Data-led reassessment", "The strongest clusters, useful questions and new opportunities are clear enough to rebuild the next calendar."],
+];
+
+const guardrails = [
+  ["A cadence for your site", "Publishing limits come from authority, competition, existing content and crawl speed."],
+  ["No fabricated numbers", "The agent may only use claims and figures from your approved facts file."],
+  ["No thin overlap", "A topic that substantially overlaps existing content changes angle or leaves the calendar."],
+  ["Draft by default", "Direct publishing remains off until you explicitly enable it."],
+  ["Fail closed", "If existing content cannot be checked, the run stops instead of risking a duplicate."],
 ];
 
 const faqs = [
@@ -56,7 +93,7 @@ type FormStatus = "idle" | "sending" | "success" | "error";
 
 export default function EnglishHome() {
   useScrollReveal();
-  const [selectedPlan, setSelectedPlan] = useState("Silver");
+  const [selectedPlan, setSelectedPlan] = useState("Professional");
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
   const [startedAt] = useState(() => Date.now());
@@ -84,7 +121,7 @@ export default function EnglishHome() {
       setStatus("success");
       setFeedback("Your request is in. We will review your site and get in touch shortly.");
       form.reset();
-      setSelectedPlan("Silver");
+      setSelectedPlan("Professional");
     } catch (error) {
       setStatus("error");
       setFeedback(error instanceof Error ? error.message : "Something went wrong. Please try again.");
@@ -101,7 +138,7 @@ export default function EnglishHome() {
         description: "A managed content engine combining strategy, keyword research, editorial planning, automated article creation, WordPress publishing and SEO completion.",
         provider: { "@type": "Organization", name: "Vira Web Aria", email: "ceo@onwebs.ir" },
         serviceType: ["Automated content creation", "AI content automation", "WordPress article publishing", "Custom-coded website content automation", "Custom integration scripts", "Content SEO", "GEO"],
-        offers: plans.map((plan, index) => ({ "@type": "Offer", name: `${plan.name} Content Bridge plan`, price: ["100000000", "150000000", "200000000"][index], priceCurrency: "IRR", description: plan.description })),
+        offers: plans.map((plan, index) => ({ "@type": "Offer", name: `${plan.name} Content Bridge plan`, price: ["90000000", "120000000", "170000000"][index], priceCurrency: "IRR", description: plan.description })),
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
@@ -164,9 +201,9 @@ export default function EnglishHome() {
         <div className="container narrow">
           <span className="section-label">The problem we solve</span><h2>Content publishing should not restart from zero every week.</h2><p className="lead">Most automated blogging workflows break in the same three places. Content Bridge was designed around removing all three.</p>
           <div className="problem-grid">
-            <article><span>01</span><h3>Half-finished articles</h3><p>The draft exists, but the cover, metadata, keyword and internal links still need someone to finish the job.</p></article>
-            <article><span>02</span><h3>Content without demand</h3><p>Pages get produced, but not for genuine search intent and not in support of the site's revenue-driving services.</p></article>
-            <article><span>03</span><h3>Inconsistent execution</h3><p>Three posts in one week, then silence for a month. That creates a scattered archive—not a content engine.</p></article>
+            <article><span>01</span><h3>Half-finished articles</h3><p>The article publishes, but its featured image, meta description and focus keyword remain empty. Someone must open the dashboard and finish it—so nobody does.</p></article>
+            <article><span>02</span><h3>Duplicate content</h3><p>A retry publishes the same article twice. Two URLs now compete for one keyword, and neither becomes the clear result.</p></article>
+            <article><span>03</span><h3>Silent failure</h3><p>Something breaks, the script still reports success, and three weeks later you discover that nothing was published.</p></article>
           </div>
         </div>
       </section>
@@ -175,6 +212,21 @@ export default function EnglishHome() {
         <div className="container">
           <div className="section-heading split-heading"><div><span className="section-label">Our process</span><h2>Before the first article, we build the system.</h2></div><p>Automation is the final step, not the whole product. Discovery, research and editorial judgement are what make automated content worth publishing.</p></div>
           <div className="process-list">{processSteps.map((step, index) => <article className={index === 3 ? "process-item automation" : "process-item"} key={step.number}><span className="process-number">{step.number}</span><div><h3>{step.title}</h3><p>{step.text}</p></div><span className="process-arrow" aria-hidden="true">→</span></article>)}</div>
+        </div>
+      </section>
+
+      <section className="section responsibility-section">
+        <div className="container">
+          <div className="section-heading split-heading"><div><span className="section-label">The real division of labour</span><h2>The agent writes the draft. Everything that makes it work is ours.</h2></div><p>Before automation is connected, roughly a month goes into understanding the site, mapping demand and building the plan the agent must follow.</p></div>
+          <div className="labour-table-wrap"><table className="labour-table"><thead><tr><th>Content Bridge team</th><th>Content agent</th></tr></thead><tbody>{labourRows.map(([human, agent]) => <tr key={human}><td>{human}</td><td>{agent}</td></tr>)}</tbody></table></div>
+          <p className="labour-note">The agent is a very fast writer with perfect memory of your rules. Strategy, judgement and course correction remain human.</p>
+        </div>
+      </section>
+
+      <section className="section agent-section">
+        <div className="container">
+          <div className="section-heading centered"><span className="section-label">Disciplined execution</span><h2>The agent does more than produce words; it follows the operating rules.</h2><p>The strategy and brief come from our team. The execution layer has clear rules for facts, voice, variation, linking and permissions.</p></div>
+          <div className="agent-grid">{agentCapabilities.map(([title, text], index) => <article className="agent-card" key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
         </div>
       </section>
 
@@ -206,10 +258,35 @@ export default function EnglishHome() {
         </div>
       </section>
 
+      <section className="section seo-proof-section" id="seo-proof">
+        <div className="container">
+          <div className="section-heading split-heading seo-proof-heading"><div><span className="section-label">SEO informed by current data</span><h2>Built for search in 2026—not an outdated SEO checklist.</h2></div><p>The March 2026 core update ran from March 27 to April 8. SE Ranking data showed substantially more movement than the December update.</p></div>
+          <div className="seo-stat-grid"><article><strong>79.5%</strong><span>of top-three URLs changed position</span></article><article><strong>24.1%</strong><span>of top-10 pages dropped beyond the top 100</span></article><article><strong>12 days</strong><span>and four hours of official rollout time</span></article></div>
+          <div className="seo-response-grid"><div><h3>How the pipeline responds</h3><p>Every article must contain something an aggregator cannot restate: first-hand experience, identifiable authorship, approved facts and a direct connection to your services.</p></div><ul><li><span>Destination source</span><b>Your projects, decisions and observations</b></li><li><span>Identifiable authorship</span><b>A real name with subject relevance</b></li><li><span>Defensible claims</span><b>Every figure comes from an approved facts file</b></li><li><span>Extractable structure</span><b>Direct answers, FAQ, schema and purposeful links</b></li></ul></div>
+          <div className="source-links"><span>Sources:</span><a href="https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history?success=true" target="_blank" rel="noreferrer">Google Search Status</a><a href="https://searchengineland.com/march-2026-google-core-update-what-changed-474397" target="_blank" rel="noreferrer">SE Ranking via Search Engine Land</a></div>
+        </div>
+      </section>
+
+      <section className="section roadmap-section">
+        <div className="container">
+          <div className="section-heading centered"><span className="section-label">The first six months</span><h2>Each month adds a measurable layer to the system.</h2><p>The calendar is not a rigid contract. It follows the site's real data and is rebuilt for the next stage at the end of the cycle.</p></div>
+          <div className="roadmap-list">{sixMonthSteps.map(([month, title, text], index) => <article className="roadmap-item" key={month}><span className="roadmap-dot">{index + 1}</span><div><small>{month}</small><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+        </div>
+      </section>
+
+      <section className="section guardrails-section">
+        <div className="container">
+          <div className="section-heading split-heading"><div><span className="section-label">Guardrails by design</span><h2>The constraints are part of the product.</h2></div><p>Good automation knows more than what to do. It knows when to stop, verify or return a decision to a person.</p></div>
+          <div className="guardrail-grid">{guardrails.map(([title, text]) => <article className="guardrail-card" key={title}><span aria-hidden="true">✓</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+        </div>
+      </section>
+
       <section className="section pricing-section" id="pricing">
         <div className="container">
-          <div className="section-heading centered pricing-heading"><span className="section-label">Monthly plans</span><h2>From consistent publishing to professional organic growth.</h2><p>Choose the operating level that fits your current stage. The content engine can grow with your team.</p></div>
+          <div className="section-heading centered pricing-heading"><span className="section-label">Plans</span><h2>Every plan includes the complete strategy.</h2><p>Audit, keyword research and a six-month calendar are complete in every plan. The difference is the final delivery—not the strategic depth.</p></div>
           <div className="pricing-grid">{plans.map((plan) => <article className={plan.featured ? "price-card featured" : "price-card"} key={plan.name}>{plan.featured && <span className="popular">Recommended</span>}<span className="plan-eyebrow">{plan.eyebrow}</span><h3>{plan.name}</h3><div className="price"><strong>{plan.price}</strong><span>million Toman<br />per month</span></div><p className="plan-description">{plan.description}</p><ul>{plan.features.map((item) => <li key={item}><span aria-hidden="true">✓</span>{item}</li>)}</ul><button className={plan.featured ? "button plan-button" : "button button-secondary plan-button"} onClick={() => choosePlan(plan.name)}>Choose {plan.name} <span aria-hidden="true">→</span></button></article>)}</div>
+          <figure className="banner-samples"><div className="banner-samples-copy"><span className="section-label">The Professional visual layer</span><h3>A fresh article banner, inside one consistent identity.</h3><p>The subject and composition change; your palette, quality and visual language stay recognisably yours.</p></div><img src="/banner-examples.png" alt="Three bespoke banner examples for a site audit, keyword clustering and cross-channel publishing" width="1823" height="863" loading="lazy" /><figcaption>These examples show the design level. The production kit is built from each brand's real palette, type and website layout.</figcaption></figure>
+          <div className="all-plans-card"><div><span className="section-label">Included in every plan</span><h3>Even the lowest-priced plan is a complete programme.</h3></div><div className="all-plans-features">{sharedPlanFeatures.map((item) => <span key={item}>{item}</span>)}</div><p>Our team sets article cadence from domain authority, keyword competition, existing content and crawl speed. We sell the right rhythm—not a short burst of volume.</p></div>
           <div className="geo-card"><div className="geo-badge">GEO<span>+</span></div><div className="geo-copy"><span className="section-label">Optional add-on for every plan</span><h3>Optimisation for generative search and answer engines</h3><p>Direct answers, question-led structure, clear entities, structured data and quotable passages—so your content is easier for ChatGPT, Gemini and AI search experiences to understand and cite.</p><div className="geo-tags"><span>Direct answers</span><span>Question structure</span><span>Entity and schema</span><span>Quotable passages</span></div></div><div className="geo-price"><strong>+5</strong><span>million Toman<br />per month</span></div></div>
           <p className="pricing-note">Prices are monthly. Final scope and publishing cadence are confirmed after the initial site review.</p>
         </div>
@@ -224,7 +301,7 @@ export default function EnglishHome() {
             <div className="form-head"><div><span>PROJECT ENQUIRY</span><strong>Take the first step.</strong></div><span className="form-time">About 2 minutes</span></div>
             <div className="field-grid"><label><span>Full name *</span><input name="name" required autoComplete="name" placeholder="e.g. Sara Ahmadi" maxLength={80} /></label><label><span>Phone number *</span><input name="phone" required inputMode="tel" autoComplete="tel" placeholder="+98 912 123 4567" maxLength={30} /></label></div>
             <div className="field-grid"><label><span>Email *</span><input name="email" type="email" required autoComplete="email" placeholder="name@company.com" maxLength={120} /></label><label><span>Website</span><input name="website" inputMode="url" placeholder="example.com" maxLength={160} /></label></div>
-            <label><span>Plan you are considering</span><select name="plan" value={selectedPlan} onChange={(event) => setSelectedPlan(event.target.value)}><option>Essential</option><option>Silver</option><option>Gold</option><option>I need help choosing</option></select></label>
+            <label><span>Plan you are considering</span><select name="plan" value={selectedPlan} onChange={(event) => setSelectedPlan(event.target.value)}><option>Base</option><option>Professional</option><option>Complete</option><option>I need help choosing</option></select></label>
             <label className="check-field"><input type="checkbox" name="geo" value="Yes" /><span><b>Add GEO optimisation</b><small>Adds 5 million Toman per month.</small></span></label>
             <label><span>Tell us about your current content setup or goal</span><textarea name="message" rows={4} maxLength={1200} placeholder="For example: how often do you publish now, and what is the biggest bottleneck?" /></label>
             <input className="honey" name="company_site" tabIndex={-1} autoComplete="off" aria-hidden="true" />

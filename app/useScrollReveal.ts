@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export function useScrollReveal() {
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>(
-      ".section-heading, .problem-grid article, .process-item, .feature-card, .promise-card, .custom-site-card, .plugin-download-card, .price-card, .geo-card, .faq-intro, .faq-list article, .contact-copy, .contact-form",
+      ".section-heading, .problem-grid article, .process-item, .labour-table-wrap, .agent-card, .feature-card, .promise-card, .custom-site-card, .plugin-download-card, .seo-stat-grid article, .seo-response-grid, .roadmap-item, .guardrail-card, .price-card, .banner-samples, .all-plans-card, .geo-card, .faq-intro, .faq-list article, .contact-copy, .contact-form",
     );
 
     if (!("IntersectionObserver" in window)) {

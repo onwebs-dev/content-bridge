@@ -18,18 +18,25 @@ test("keeps the Persian and English sales messages aligned", async () => {
   assert.match(persian, /قبل از شروع، مسیر محتوا و خروجی هر ماه را دقیق می‌بینید/);
   assert.match(persian, /اسکریپت و تنظیمات اختصاصی انجام می‌شود/);
   assert.match(persian, /downloads\/content-bridge-2\.1\.0\.zip/);
-  assert.match(persian, /price: "۱۰"/);
-  assert.match(persian, /price: "۱۵"/);
-  assert.match(persian, /price: "۲۰"/);
+  assert.match(persian, /price: "۹"/);
+  assert.match(persian, /price: "۱۲"/);
+  assert.match(persian, /price: "۱۷"/);
+  assert.match(persian, /در هر سه پلن، بدون استثنا/);
+  assert.match(persian, /مسیر شش‌ماهه/);
+  assert.match(persian, /۷۹٫۵٪/);
 
   assert.match(english, /Clarity from day one/);
   assert.match(english, /See the content roadmap and monthly deliverables before work begins/);
   assert.match(english, /purpose-built script and integration setup/);
   assert.match(english, /Download plugin/);
-  assert.match(english, /price: "10"/);
-  assert.match(english, /price: "15"/);
-  assert.match(english, /price: "20"/);
+  assert.match(english, /price: "9"/);
+  assert.match(english, /price: "12"/);
+  assert.match(english, /price: "17"/);
+  assert.match(english, /Included in every plan/);
+  assert.match(english, /The first six months/);
+  assert.match(english, /79\.5%/);
   await access(new URL("public/downloads/content-bridge-2.1.0.zip", projectRoot));
+  await access(new URL("public/banner-examples.png", projectRoot));
 });
 
 test("includes bilingual SEO and local shared-host support", async () => {
@@ -49,4 +56,5 @@ test("includes bilingual SEO and local shared-host support", async () => {
   assert.match(builder, /site\.css/);
   assert.match(builder, /smtp_password/);
   assert.match(builder, /downloadsDir/);
+  assert.match(builder, /banner-examples\.png/);
 });

@@ -61,51 +61,106 @@ const features = [
 
 const plans = [
   {
-    name: "اقتصادی",
-    eyebrow: "شروع منظم",
-    price: "۱۰",
-    description: "برای کسب‌وکارهایی که می‌خواهند انتشار وبلاگ را از حالت مقطعی خارج کنند.",
+    name: "پایه",
+    eyebrow: "شروع حرفه‌ای",
+    price: "۹",
+    description: "برای کسب‌وکارهایی که می‌خواهند وبلاگشان با استراتژی درست و سئوی کامل، منظم منتشر شود.",
     features: [
-      "اتصال و پیکربندی اختصاصی سایت",
-      "برنامه‌ریزی تقویم محتوایی ماهانه",
-      "شخصی‌سازی لحن، مخاطب و دعوت به اقدام",
-      "شناخت موضوع، نیت جست‌وجو، تگ و دسته",
-      "انتشار منظم در وبلاگ وردپرس",
-      "تنظیم تصویر شاخص و فیلدهای پایه سئو",
-      "کنترل محتوای تکراری و گزارش اجرا",
+      "ممیزی کامل ساختار، محتوا و سلامت فنی سایت",
+      "بررسی رقبا و شناسایی شکاف‌های محتوایی",
+      "تحقیق کلمات کلیدی و خوشه‌بندی براساس نتایج واقعی جست‌وجو",
+      "تحلیل نیت جست‌وجو و تعیین قالب هر مقاله",
+      "تقویم محتوای شش‌ماهه با تاریخ مشخص برای هر مقاله",
+      "بریف اختصاصی: کلیدواژه، ساختار تیترها و طول هدف",
+      "نصب و پیکربندی افزونه روی سایت شما",
+      "رفع مشکلات سرور و ناسازگاری‌های هاست",
+      "انتشار خودکار و زمان‌بندی‌شده روی وردپرس",
+      "تکمیل فیلدهای Yoast، Rank Math، SEOPress یا AIOSEO",
+      "عنوان سئو، متا، کلیدواژه اصلی و کلیدواژه‌های فرعی",
+      "دسته و برچسب هوشمند، ساخته‌شده در صورت نبود",
+      "لینک‌سازی داخلی هدفمند در دل جملات",
+      "سؤالات پرتکرار همراه اسکیمای FAQ",
+      "کنترل محتوای تکراری با شناسه اختصاصی",
+      "گزارش شفاف اجرا و خطاها",
+      "بازبینی ماهانه و اصلاح مسیر",
     ],
   },
   {
-    name: "نقره‌ای",
-    eyebrow: "حضور چندکاناله",
-    price: "۱۵",
+    name: "حرفه‌ای",
+    eyebrow: "کامل‌ترین نسبت ارزش",
+    price: "۱۲",
     featured: true,
-    description: "برای برندهایی که می‌خواهند سایت و لینکدین با یک صدای منسجم رشد کنند.",
+    description: "همه‌ی پلن پایه، به‌علاوه‌ی تصویر شاخص اختصاصی برای هر مقاله با هویت بصری برند شما.",
     features: [
-      "تمام امکانات پلن اقتصادی",
-      "انتشار مقاله کامل روی سایت",
-      "اتصال و پیکربندی صفحه لینکدین",
-      "تبدیل هر مقاله به پست مناسب لینکدین",
-      "انتشار زمان‌بندی‌شده پست‌های لینکدین",
-      "هماهنگ‌سازی لحن در سایت و شبکه اجتماعی",
-      "بازبینی و بهینه‌سازی برنامه در پایان ماه",
+      "تمام امکانات پلن پایه",
+      "بنر اختصاصی هر مقاله با پالت و فونت برند",
+      "ترکیب بصری متناسب با موضوع؛ بدون تصویر تکراری",
+      "ابعاد استاندارد و سازگار با قالب سایت",
+      "فرمت بهینه برای پیش‌نمایش شبکه‌های اجتماعی",
+      "متن جایگزین توصیفی برای سئو و دسترس‌پذیری",
+      "ثبت خودکار در کتابخانه رسانه با عنوان و توضیح",
+      "تنظیم Open Graph برای اشتراک‌گذاری درست",
+      "کیت بصری اختصاصی برند در مرحله راه‌اندازی",
+      "بهینه‌سازی حجم تصویر برای سرعت صفحه",
     ],
   },
   {
-    name: "طلایی",
-    eyebrow: "رشد حرفه‌ای",
-    price: "۲۰",
-    description: "برای تیم‌هایی که علاوه بر انتشار، یک برنامه جدی و مداوم سئو می‌خواهند.",
+    name: "کامل",
+    eyebrow: "حضور چندکاناله",
+    price: "۱۷",
+    description: "همه‌ی پلن حرفه‌ای، به‌علاوه‌ی انتشار خودکار روی لینکدین با لحن و زمان‌بندی مناسب همان پلتفرم.",
     features: [
-      "تمام امکانات پلن نقره‌ای",
-      "ممیزی حرفه‌ای محتوا و سئوی سایت",
-      "تحقیق و خوشه‌بندی عمیق کلمات کلیدی",
-      "نقشه لینک‌سازی داخلی و معماری موضوعی",
-      "بهینه‌سازی متا، اسکیما و ساختار مقاله",
-      "پایش فرصت‌ها و بازطراحی تقویم محتوا",
-      "گزارش تحلیلی ماهانه و جلسه راهبری",
+      "تمام امکانات پلن حرفه‌ای",
+      "اتصال و راه‌اندازی کامل لینکدین",
+      "تبدیل هر مقاله به پستی مستقل، نه خلاصه فهرست‌وار",
+      "کپشن با لحن مناسب لینکدین و نام همان نویسنده",
+      "قلاب اول اختصاصی برای هر پست",
+      "کارت پیش‌نمایش لینک با تصویر درست",
+      "زمان‌بندی انتشار متناسب با مخاطب",
+      "هماهنگی لحن میان سایت و شبکه اجتماعی",
+      "هشتگ‌گذاری متناسب با موضوع",
+      "مدیریت و تمدید دوره‌ای دسترسی لینکدین",
+      "پشتیبانی از چند نویسنده روی پروفایل‌های جدا",
+      "گزارش عملکرد انتشار در هر دو کانال",
     ],
   },
+];
+
+const sharedPlanFeatures = ["ممیزی و استراتژی کامل", "تحقیق کلمات کلیدی", "تقویم شش‌ماهه", "نصب و پیکربندی افزونه", "تکمیل فیلدهای سئو", "جلوگیری از محتوای تکراری", "گزارش شفاف اجرا", "بازبینی ماهانه و اصلاح مسیر"];
+
+const labourRows = [
+  ["ممیزی، تحقیق کلمات کلیدی و استراتژی", "نگارش پیش‌نویس مقاله"],
+  ["تقویم شش‌ماهه و بریف هر مقاله", "اجرای دقیق بریف"],
+  ["فایل واقعیت‌ها و ادعاهای مجاز", "ماندن در محدوده همان داده‌ها"],
+  ["انتخاب نویسنده و لحن", "نوشتن با همان صدا"],
+  ["تصمیم درباره ریتم و اولویت", "انتشار طبق برنامه"],
+  ["خواندن تغییرات الگوریتم", "—"],
+  ["بازبینی ماهانه و اصلاح مسیر", "—"],
+];
+
+const agentCapabilities = [
+  ["موضوع روز را می‌سنجد", "از تقویم جلو می‌رود؛ اما اگر خبر واقعاً مرتبطی منتشر شود، اول آن را پوشش می‌دهد و بعد به برنامه برمی‌گردد."],
+  ["واقعیت نمی‌سازد", "هر عدد باید از فایل واقعیت‌های تأییدشده شما بیاید؛ اگر داده‌ای وجود نداشته باشد، ادعای عددی منتشر نمی‌شود."],
+  ["با صدای یک فرد واقعی می‌نویسد", "نویسنده براساس موضوع انتخاب می‌شود و تجربه‌های واقعی همان فرد، لحن و جمع‌بندی مقاله را شکل می‌دهد."],
+  ["ریتم متن را تغییر می‌دهد", "طول جمله، شروع پاراگراف و لحن جمع‌بندی متنوع می‌شود تا خروجی یکنواخت و ماشینی نباشد."],
+  ["لینک داخلی را با هدف می‌سازد", "در دل جمله به صفحات خدمات و مقاله‌های مرتبط لینک می‌دهد؛ نه در یک فهرست بی‌ارتباط انتهای متن."],
+  ["مرز اختیارش را می‌داند", "ایجنت پیش‌نویس می‌سازد؛ انتشار، آرشیو و تغییر تقویم در اختیار اسکریپت‌های قطعی و قابل گزارش است."],
+];
+
+const sixMonthSteps = [
+  ["ماه ۱", "زیرساخت", "اتصال و آزمون کامل می‌شود، تقویم وارد اجرا می‌شود و انتشار دیگر به یادآوری دستی وابسته نیست."],
+  ["ماه ۲", "ایندکس و اولین سیگنال‌ها", "صفحه‌ها وارد ایندکس می‌شوند و Search Console عبارت‌های طولانی و پرسش‌محور را نشان می‌دهد."],
+  ["ماه ۳", "شکل‌گیری خوشه موضوعی", "لینک‌های داخلی مقاله‌ها را دور خدمات اصلی جمع می‌کنند و موضوع‌ها از حالت پراکنده خارج می‌شوند."],
+  ["ماه‌های ۴ و ۵", "اثر انباشته", "محتواهای قدیمی‌تر داده می‌سازند، صفحات خدمات از لینک‌های هدفمند نیرو می‌گیرند و مسیر ماه بعد دقیق‌تر می‌شود."],
+  ["ماه ۶", "بازطراحی با داده واقعی", "خوشه‌های مؤثر، پرسش‌های ارزشمند و فرصت‌های جدید مشخص می‌شوند و تقویم برای دوره بعد بازچینی می‌شود."],
+];
+
+const guardrails = [
+  ["ریتم اختصاصی هر سایت", "سقف انتشار از اعتبار دامنه، رقابت، محتوای موجود و سرعت خزش تعیین می‌شود."],
+  ["بدون عدد ساختگی", "ایجنت فقط از فایل واقعیت‌های تأییدشده شما عدد و ادعا برمی‌دارد."],
+  ["بدون هم‌پوشانی کم‌ارزش", "موضوع مشابه با محتوای موجود، زاویه تازه می‌گیرد یا از برنامه حذف می‌شود."],
+  ["پیش‌نویس به‌صورت پیش‌فرض", "انتشار مستقیم تا زمانی که شما فعالش نکنید خاموش می‌ماند."],
+  ["توقف امن هنگام خطا", "اگر بررسی محتوای موجود ممکن نباشد، اجرا متوقف می‌شود تا مطلب تکراری ساخته نشود."],
 ];
 
 const faqs = [
@@ -135,7 +190,7 @@ type FormStatus = "idle" | "sending" | "success" | "error";
 
 export default function Home() {
   useScrollReveal();
-  const [selectedPlan, setSelectedPlan] = useState("نقره‌ای");
+  const [selectedPlan, setSelectedPlan] = useState("حرفه‌ای");
   const [status, setStatus] = useState<FormStatus>("idle");
   const [feedback, setFeedback] = useState("");
   const [startedAt] = useState(() => Date.now());
@@ -168,7 +223,7 @@ export default function Home() {
       setStatus("success");
       setFeedback("درخواست شما ثبت شد. خیلی زود برای یک گفت‌وگوی کوتاه با شما تماس می‌گیریم.");
       form.reset();
-      setSelectedPlan("نقره‌ای");
+      setSelectedPlan("حرفه‌ای");
     } catch (error) {
       setStatus("error");
       setFeedback(error instanceof Error ? error.message : "خطایی رخ داد؛ لطفاً دوباره تلاش کنید.");
@@ -192,7 +247,7 @@ export default function Home() {
             offers: plans.map((plan, index) => ({
               "@type": "Offer",
               name: `پلن ${plan.name} Content Bridge`,
-              price: ["100000000", "150000000", "200000000"][index],
+              price: ["90000000", "120000000", "170000000"][index],
               priceCurrency: "IRR",
               description: plan.description,
             })),
@@ -312,9 +367,9 @@ export default function Home() {
           <h2>انتشار محتوا نباید هر هفته از صفر شروع شود.</h2>
           <p className="lead">بیشتر فرایندهای محتوایی در یکی از این سه نقطه متوقف می‌شوند؛ ما هر سه را از مسیر حذف کرده‌ایم.</p>
           <div className="problem-grid">
-            <article><span>۰۱</span><h3>مقاله نیمه‌کاره</h3><p>متن آماده است اما تصویر، متا، کلیدواژه و لینک‌ها خالی مانده‌اند؛ پس انتشار عقب می‌افتد.</p></article>
-            <article><span>۰۲</span><h3>موضوع‌های بی‌هدف</h3><p>محتوا تولید می‌شود، اما نه برای تقاضای واقعی بازار و نه در خدمت صفحات درآمدزای سایت.</p></article>
-            <article><span>۰۳</span><h3>اجرای نامنظم</h3><p>یک هفته سه مقاله و بعد یک ماه سکوت. نتیجه، آرشیوی پراکنده است نه یک موتور رشد.</p></article>
+            <article><span>۰۱</span><h3>مقاله نیمه‌کاره</h3><p>مقاله منتشر می‌شود اما تصویر شاخص، توضیحات متا و کلیدواژه خالی می‌ماند. یک نفر باید پیشخوان را باز کند و کار را تمام کند؛ و کسی نمی‌کند.</p></article>
+            <article><span>۰۲</span><h3>محتوای تکراری</h3><p>یک اجرای دوباره، همان مقاله را دو بار منتشر می‌کند. حالا دو آدرس برای یک کلیدواژه با هم رقابت می‌کنند و هیچ‌کدام برنده نمی‌شوند.</p></article>
+            <article><span>۰۳</span><h3>شکست خاموش</h3><p>چیزی خراب می‌شود، اسکریپت «موفق» گزارش می‌دهد و سه هفته بعد می‌فهمید هیچ مقاله‌ای منتشر نشده است.</p></article>
           </div>
         </div>
       </section>
@@ -334,6 +389,33 @@ export default function Home() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section className="section responsibility-section">
+        <div className="container">
+          <div className="section-heading split-heading">
+            <div><span className="section-label">تقسیم کار واقعی</span><h2>ایجنت پیش‌نویس را می‌نویسد؛ هر چیزی که آن را مؤثر می‌کند با ماست.</h2></div>
+            <p>پیش از اتصال اتوماسیون، حدود یک ماه صرف شناخت سایت، نقشه تقاضا و ساخت تقویمی می‌شود که ایجنت باید دقیقاً از آن پیروی کند.</p>
+          </div>
+          <div className="labour-table-wrap">
+            <table className="labour-table">
+              <thead><tr><th>تیم Content Bridge</th><th>ایجنت محتوا</th></tr></thead>
+              <tbody>{labourRows.map(([human, agent]) => <tr key={human}><td>{human}</td><td>{agent}</td></tr>)}</tbody>
+            </table>
+          </div>
+          <p className="labour-note">ایجنت یک نویسنده بسیار سریع با حافظه کامل از قوانین شماست؛ استراتژی، قضاوت و اصلاح مسیر همچنان انسانی می‌ماند.</p>
+        </div>
+      </section>
+
+      <section className="section agent-section">
+        <div className="container">
+          <div className="section-heading centered">
+            <span className="section-label">اجرای هوشمند و منضبط</span>
+            <h2>ایجنت فقط کلمه تولید نمی‌کند؛ قواعد کار را اجرا می‌کند.</h2>
+            <p>تقویم و بریف از تیم ما می‌آید. لایه اجرا نیز برای واقعیت‌محوری، تنوع، لینک‌سازی و کنترل اختیار، قانون روشن دارد.</p>
+          </div>
+          <div className="agent-grid">{agentCapabilities.map(([title, text], index) => <article className="agent-card" key={title}><span>{String(index + 1).padStart(2, "0")}</span><h3>{title}</h3><p>{text}</p></article>)}</div>
         </div>
       </section>
 
@@ -390,12 +472,60 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section seo-proof-section" id="seo-proof">
+        <div className="container">
+          <div className="section-heading split-heading seo-proof-heading">
+            <div><span className="section-label">سئو براساس داده تازه</span><h2>برای جست‌وجوی ۲۰۲۶ ساخته شده؛ نه نسخه قدیمی سئو.</h2></div>
+            <p>به‌روزرسانی هسته مارچ ۲۰۲۶ از ۲۷ مارچ تا ۸ اپریل اجرا شد. داده‌های SE Ranking نشان دادند جابه‌جایی نتایج، گسترده‌تر از آپدیت دسامبر بوده است.</p>
+          </div>
+          <div className="seo-stat-grid">
+            <article><strong>۷۹٫۵٪</strong><span>از URLهای سه نتیجه اول تغییر موقعیت داشتند</span></article>
+            <article><strong>۲۴٫۱٪</strong><span>از صفحات Top 10 به خارج Top 100 رفتند</span></article>
+            <article><strong>۱۲ روز</strong><span>و ۴ ساعت، مدت رسمی انتشار آپدیت</span></article>
+          </div>
+          <div className="seo-response-grid">
+            <div>
+              <h3>پاسخ ما به این تغییرات</h3>
+              <p>هر مقاله باید چیزی داشته باشد که یک گردآورنده نتواند بازنویسی کند: تجربه واقعی، نویسنده مشخص، داده تأییدشده و ارتباط روشن با خدمات شما.</p>
+            </div>
+            <ul>
+              <li><span>منبع مقصد</span><b>پروژه‌ها، تصمیم‌ها و تجربه‌های واقعی خود شما</b></li>
+              <li><span>نویسندگی مشخص</span><b>نام واقعی و تخصص مرتبط با موضوع</b></li>
+              <li><span>ادعای قابل اتکا</span><b>هر عدد فقط از فایل واقعیت‌های تأییدشده</b></li>
+              <li><span>ساختار قابل فهم</span><b>پاسخ مستقیم، FAQ، اسکیما و لینک داخلی هدفمند</b></li>
+            </ul>
+          </div>
+          <div className="source-links"><span>منابع:</span><a href="https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history?success=true" target="_blank" rel="noreferrer">Google Search Status</a><a href="https://searchengineland.com/march-2026-google-core-update-what-changed-474397" target="_blank" rel="noreferrer">SE Ranking via Search Engine Land</a></div>
+        </div>
+      </section>
+
+      <section className="section roadmap-section">
+        <div className="container">
+          <div className="section-heading centered">
+            <span className="section-label">مسیر شش‌ماهه</span>
+            <h2>هر ماه، یک لایه قابل اندازه‌گیری به سیستم اضافه می‌شود.</h2>
+            <p>تقویم ثابت و بی‌انعطاف نیست؛ با داده‌های واقعی سایت جلو می‌رود و در پایان دوره برای مرحله بعد بازطراحی می‌شود.</p>
+          </div>
+          <div className="roadmap-list">{sixMonthSteps.map(([month, title, text], index) => <article className="roadmap-item" key={month}><span className="roadmap-dot">{index + 1}</span><div><small>{month}</small><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+        </div>
+      </section>
+
+      <section className="section guardrails-section">
+        <div className="container">
+          <div className="section-heading split-heading">
+            <div><span className="section-label">قیدهای عمدی</span><h2>محدودیت‌ها بخشی از محصول‌اند.</h2></div>
+            <p>اتوماسیون خوب فقط نمی‌داند چه کاری انجام دهد؛ می‌داند چه زمانی باید متوقف شود، بررسی کند یا تصمیم را به انسان برگرداند.</p>
+          </div>
+          <div className="guardrail-grid">{guardrails.map(([title, text]) => <article className="guardrail-card" key={title}><span aria-hidden="true">✓</span><div><h3>{title}</h3><p>{text}</p></div></article>)}</div>
+        </div>
+      </section>
+
       <section className="section pricing-section" id="pricing">
         <div className="container">
           <div className="section-heading centered pricing-heading">
-            <span className="section-label">پلن‌های ماهانه</span>
-            <h2>از انتشار منظم تا رشد حرفه‌ای.</h2>
-            <p>هر پلن برای یک مرحله از بلوغ محتوایی طراحی شده است. هر زمان لازم باشد، می‌توانید سطح خدمات را ارتقا دهید.</p>
+            <span className="section-label">پلن‌ها</span>
+            <h2>هر سه پلن، کل کار استراتژی را دارند.</h2>
+            <p>ممیزی، تحقیق کلمات کلیدی و تقویم شش‌ماهه در همه پلن‌ها کامل انجام می‌شود؛ تفاوت در خروجی نهایی است، نه در عمق کار.</p>
           </div>
           <div className="pricing-grid">
             {plans.map((plan) => (
@@ -411,6 +541,18 @@ export default function Home() {
                 </button>
               </article>
             ))}
+          </div>
+
+          <figure className="banner-samples">
+            <div className="banner-samples-copy"><span className="section-label">ارزش بصری پلن حرفه‌ای</span><h3>برای هر مقاله یک بنر تازه، در یک هویت ثابت.</h3><p>موضوع و ترکیب‌بندی تغییر می‌کند؛ پالت، کیفیت و زبان بصری برند شما ثابت می‌ماند.</p></div>
+            <img src="/banner-examples.png" alt="سه نمونه بنر اختصاصی برای ممیزی سایت، خوشه‌بندی کلمات کلیدی و انتشار چندکاناله" width="1823" height="863" loading="lazy" />
+            <figcaption>نمونه جهت نمایش سطح طراحی است؛ کیت واقعی از رنگ، فونت و قالب سایت هر برند ساخته می‌شود.</figcaption>
+          </figure>
+
+          <div className="all-plans-card">
+            <div><span className="section-label">در هر سه پلن، بدون استثنا</span><h3>ارزان‌ترین پلن هم یک برنامه کامل است.</h3></div>
+            <div className="all-plans-features">{sharedPlanFeatures.map((item) => <span key={item}>{item}</span>)}</div>
+            <p>تعداد مقاله‌ها را تیم ما براساس اعتبار دامنه، رقابت کلیدواژه‌ها، محتوای موجود و سرعت خزش سایت تعیین می‌کند. ریتم درست می‌فروشیم، نه انتشار پرحجم و کوتاه‌مدت.</p>
           </div>
 
           <div className="geo-card">
@@ -460,7 +602,7 @@ export default function Home() {
               <label><span>ایمیل *</span><input name="email" type="email" required autoComplete="email" placeholder="name@company.com" maxLength={120} dir="ltr" /></label>
               <label><span>آدرس سایت</span><input name="website" inputMode="url" placeholder="example.com" maxLength={160} dir="ltr" /></label>
             </div>
-            <label><span>پلن موردنظر</span><select name="plan" value={selectedPlan} onChange={(event) => setSelectedPlan(event.target.value)}><option>اقتصادی</option><option>نقره‌ای</option><option>طلایی</option><option>برای انتخاب نیاز به مشاوره دارم</option></select></label>
+            <label><span>پلن موردنظر</span><select name="plan" value={selectedPlan} onChange={(event) => setSelectedPlan(event.target.value)}><option>پایه</option><option>حرفه‌ای</option><option>کامل</option><option>برای انتخاب نیاز به مشاوره دارم</option></select></label>
             <label className="check-field"><input type="checkbox" name="geo" value="بله" /><span><b>افزودنی GEO را هم می‌خواهم</b><small>ماهانه ۵ میلیون تومان به پلن اضافه می‌شود.</small></span></label>
             <label><span>درباره وضعیت فعلی محتوا یا هدفتان بنویسید</span><textarea name="message" rows={4} maxLength={1200} placeholder="مثلاً ماهانه چند محتوا منتشر می‌کنید و مهم‌ترین چالش شما چیست؟" /></label>
             <input className="honey" name="company_site" tabIndex={-1} autoComplete="off" aria-hidden="true" />

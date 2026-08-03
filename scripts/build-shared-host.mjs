@@ -43,6 +43,7 @@ function cleanHtml(source, locale) {
   }
 
   html = html
+    .replace('src="/banner-examples.png"', `src="${assetPrefix}banner-examples.png"`)
     .replace("http://localhost:3000/og-en.png", `<?= cb_e(${imagePhp}) ?>`)
     .replace("http://localhost:3000/og.png", `<?= cb_e(${imagePhp}) ?>`)
     .replace(/<meta property="og:url" content="http:\/\/localhost:3000(?:\/en)?"\/>/, `<meta property="og:url" content="<?= cb_e(${pageUrlPhp}) ?>"/>`)
@@ -76,7 +77,7 @@ const siteJs = `(() => {
   });
 
   const revealElements = document.querySelectorAll(
-    ".section-heading, .problem-grid article, .process-item, .feature-card, .promise-card, .custom-site-card, .plugin-download-card, .price-card, .geo-card, .faq-intro, .faq-list article, .contact-copy, .contact-form"
+    ".section-heading, .problem-grid article, .process-item, .labour-table-wrap, .agent-card, .feature-card, .promise-card, .custom-site-card, .plugin-download-card, .seo-stat-grid article, .seo-response-grid, .roadmap-item, .guardrail-card, .price-card, .banner-samples, .all-plans-card, .geo-card, .faq-intro, .faq-list article, .contact-copy, .contact-form"
   );
   if ("IntersectionObserver" in window) {
     revealElements.forEach((element) => element.classList.add("motion-ready"));
@@ -447,6 +448,7 @@ for (const name of assetNames.filter((name) => /\.woff2?$/.test(name))) {
 }
 await cp(path.join(projectDir, "public", "og.png"), path.join(assetsDir, "og.png"));
 await cp(path.join(projectDir, "public", "og-en.png"), path.join(assetsDir, "og-en.png"));
+await cp(path.join(projectDir, "public", "banner-examples.png"), path.join(assetsDir, "banner-examples.png"));
 await cp(path.join(projectDir, "public", "downloads", "content-bridge-2.1.0.zip"), path.join(downloadsDir, "content-bridge-2.1.0.zip"));
 
 await writeFile(path.join(outputDir, "_bootstrap.php"), bootstrapPhp, "utf8");
