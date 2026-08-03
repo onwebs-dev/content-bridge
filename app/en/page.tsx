@@ -23,14 +23,14 @@ const plans = [
   {
     name: "Essential",
     eyebrow: "Consistent publishing",
-    price: "5",
+    price: "10",
     description: "For businesses ready to turn an occasional blog into a dependable publishing operation.",
     features: ["Dedicated site connection and setup", "Monthly editorial calendar", "Brand voice, audience and CTA rules", "Topic, intent, tag and category detection", "Scheduled WordPress blog publishing", "Cover image and essential SEO fields", "Duplicate protection and run reports"],
   },
   {
     name: "Silver",
     eyebrow: "Multi-channel presence",
-    price: "10",
+    price: "15",
     featured: true,
     description: "For brands that want their website and LinkedIn to grow with one consistent editorial voice.",
     features: ["Everything in Essential", "Complete article publishing on your site", "LinkedIn page connection and setup", "Article-to-LinkedIn post adaptation", "Scheduled LinkedIn publishing", "Cross-channel tone consistency", "Monthly calendar review and refinement"],
@@ -38,7 +38,7 @@ const plans = [
   {
     name: "Gold",
     eyebrow: "Professional organic growth",
-    price: "15",
+    price: "20",
     description: "For teams that need a serious SEO programme behind their automated content creation.",
     features: ["Everything in Silver", "Professional content and SEO audit", "Deep keyword research and clustering", "Topic architecture and internal-link map", "Metadata, schema and article optimisation", "Opportunity monitoring and calendar steering", "Monthly analysis and strategy session"],
   },
@@ -101,7 +101,19 @@ export default function EnglishHome() {
         description: "A managed content engine combining strategy, keyword research, editorial planning, automated article creation, WordPress publishing and SEO completion.",
         provider: { "@type": "Organization", name: "Vira Web Aria", email: "ceo@onwebs.ir" },
         serviceType: ["Automated content creation", "AI content automation", "WordPress article publishing", "Custom-coded website content automation", "Custom integration scripts", "Content SEO", "GEO"],
-        offers: plans.map((plan, index) => ({ "@type": "Offer", name: `${plan.name} Content Bridge plan`, price: ["50000000", "100000000", "150000000"][index], priceCurrency: "IRR", description: plan.description })),
+        offers: plans.map((plan, index) => ({ "@type": "Offer", name: `${plan.name} Content Bridge plan`, price: ["100000000", "150000000", "200000000"][index], priceCurrency: "IRR", description: plan.description })),
+      }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: "Content Bridge WordPress Plugin",
+        softwareVersion: "2.1.0",
+        applicationCategory: "BusinessApplication",
+        operatingSystem: "WordPress 5.6+",
+        downloadUrl: "../downloads/content-bridge-2.1.0.zip",
+        description: "A secure WordPress publishing bridge for articles, featured images, taxonomy, SEO fields, FAQ data and duplicate-safe updates.",
+        author: { "@type": "Organization", name: "Vira Web Aria" },
+        license: "https://www.gnu.org/licenses/gpl-2.0.html",
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
@@ -112,7 +124,7 @@ export default function EnglishHome() {
       <nav className="nav" aria-label="Main navigation">
         <div className="container nav-inner">
           <a className="brand" href="#top" aria-label="Content Bridge home"><span className="brand-mark" aria-hidden="true"><i /><i /><i /></span><span>Content Bridge</span></a>
-          <div className="nav-links"><a href="#process">Process</a><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
+          <div className="nav-links"><a href="#process">Process</a><a href="#features">Features</a><a href="#download-plugin">Plugin</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a></div>
           <a className="language-switch" href="/" hrefLang="fa" aria-label="مشاهده نسخه فارسی">فا</a>
           <a className="button button-small" href="#contact">Start a project <span aria-hidden="true">→</span></a>
         </div>
@@ -172,6 +184,25 @@ export default function EnglishHome() {
           <div className="feature-grid">{features.map((feature) => <article className="feature-card" key={feature.title}><span className="feature-icon">{feature.icon}</span><h3>{feature.title}</h3><p>{feature.text}</p></article>)}</div>
           <div className="promise-card"><div className="promise-mark" aria-hidden="true">“</div><div><span className="section-label">Clarity from day one</span><h3>See the content roadmap and monthly deliverables before work begins.</h3></div><p>Topics, publishing dates, content status and delivery reports stay visible—so your team always knows what is happening, why it matters and what comes next.</p></div>
           <div className="custom-site-card"><div className="custom-site-code" aria-hidden="true"><span>&lt;/&gt;</span><i /><i /><i /></div><div className="custom-site-copy"><span className="section-label">Not running WordPress?</span><h3>Custom-coded websites get a purpose-built script and integration setup.</h3><p>We review your architecture, APIs, authentication, database and content model, then develop and test publishing logic around your actual infrastructure.</p><div className="custom-site-tags"><span>Custom connector script</span><span>API and field mapping</span><span>Publishing and duplicate controls</span><span>Server-level testing</span></div></div><a className="custom-site-link" href="#contact">Technical discovery <span aria-hidden="true">→</span></a></div>
+        </div>
+      </section>
+
+      <section className="section plugin-download-section" id="download-plugin">
+        <div className="container">
+          <div className="plugin-download-card">
+            <div className="plugin-download-icon" aria-hidden="true"><span>CB</span><small>WP</small></div>
+            <div className="plugin-download-copy">
+              <span className="section-label">Official WordPress plugin</span>
+              <h2>Connect your site to a secure content publishing pipeline.</h2>
+              <p>Version 2.1.0 receives articles, featured images, taxonomy, complete SEO fields and FAQ data through a secure endpoint, while duplicate-safe updates keep every article unique.</p>
+              <div className="plugin-download-tags"><span>Secure REST API</span><span>Duplicate protection</span><span>Yoast and Rank Math</span><span>Logs and diagnostics</span></div>
+            </div>
+            <div className="plugin-download-action">
+              <span className="plugin-version">Version 2.1.0</span>
+              <a className="button plugin-download-button" href="../downloads/content-bridge-2.1.0.zip" download>Download plugin <span aria-hidden="true">↓</span></a>
+              <small>WordPress 5.6+ · PHP 7.4+</small>
+            </div>
+          </div>
         </div>
       </section>
 

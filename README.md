@@ -8,6 +8,8 @@ Content Bridge is an open-source, bilingual sales landing page for a managed AI-
 
 **Live demo:** [content-bridge-fa.onwebs.chatgpt.site](https://content-bridge-fa.onwebs.chatgpt.site)
 
+**WordPress plugin:** [Download Content Bridge 2.1.0](./public/downloads/content-bridge-2.1.0.zip)
+
 ### Highlights
 
 - Persian RTL and English LTR experiences
@@ -63,7 +65,7 @@ Issues and pull requests are welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) 
 
 ### License
 
-Released under the [MIT License](./LICENSE) by [ONWEBS](https://github.com/onwebs-dev) and Sepehr Fathi.
+The landing-page source is released under the [MIT License](./LICENSE) by [ONWEBS](https://github.com/onwebs-dev) and Sepehr Fathi. The bundled Content Bridge WordPress plugin declares GPL-2.0-or-later in its own package.
 
 ---
 
@@ -72,6 +74,8 @@ Released under the [MIT License](./LICENSE) by [ONWEBS](https://github.com/onweb
 Content Bridge یک لندینگ فروش دوزبانه و متن‌باز برای سرویس مدیریت و اتوماسیون محتوا با کمک هوش مصنوعی است. این پروژه خدمات استراتژی محتوا، تحقیق کلمات کلیدی، انتشار وردپرس، توزیع در لینکدین، سئوی حرفه‌ای، GEO و اتصال اختصاصی سایت‌های کدنویسی‌شده را معرفی می‌کند.
 
 **نسخه آنلاین:** [content-bridge-fa.onwebs.chatgpt.site](https://content-bridge-fa.onwebs.chatgpt.site)
+
+**افزونه وردپرس:** [دانلود Content Bridge نسخه ۲.۱.۰](./public/downloads/content-bridge-2.1.0.zip)
 
 ### امکانات اصلی
 
@@ -120,4 +124,4 @@ Issue و Pull Request پذیرفته می‌شود. قبل از ارسال تغ�
 
 ### مجوز
 
-این پروژه توسط [ONWEBS](https://github.com/onwebs-dev) و سپهر فتحی با [مجوز MIT](./LICENSE) منتشر شده است.
+کد لندینگ توسط [ONWEBS](https://github.com/onwebs-dev) و سپهر فتحی با [مجوز MIT](./LICENSE) منتشر شده است. افزونه وردپرس Content Bridge داخل بسته، مطابق اطلاعات خود افزونه تحت GPL-2.0-or-later ارائه می‌شود.

@@ -63,7 +63,7 @@ const plans = [
   {
     name: "اقتصادی",
     eyebrow: "شروع منظم",
-    price: "۵",
+    price: "۱۰",
     description: "برای کسب‌وکارهایی که می‌خواهند انتشار وبلاگ را از حالت مقطعی خارج کنند.",
     features: [
       "اتصال و پیکربندی اختصاصی سایت",
@@ -78,7 +78,7 @@ const plans = [
   {
     name: "نقره‌ای",
     eyebrow: "حضور چندکاناله",
-    price: "۱۰",
+    price: "۱۵",
     featured: true,
     description: "برای برندهایی که می‌خواهند سایت و لینکدین با یک صدای منسجم رشد کنند.",
     features: [
@@ -94,7 +94,7 @@ const plans = [
   {
     name: "طلایی",
     eyebrow: "رشد حرفه‌ای",
-    price: "۱۵",
+    price: "۲۰",
     description: "برای تیم‌هایی که علاوه بر انتشار، یک برنامه جدی و مداوم سئو می‌خواهند.",
     features: [
       "تمام امکانات پلن نقره‌ای",
@@ -192,10 +192,27 @@ export default function Home() {
             offers: plans.map((plan, index) => ({
               "@type": "Offer",
               name: `پلن ${plan.name} Content Bridge`,
-              price: ["50000000", "100000000", "150000000"][index],
+              price: ["100000000", "150000000", "200000000"][index],
               priceCurrency: "IRR",
               description: plan.description,
             })),
+          }),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: "افزونه وردپرس Content Bridge",
+            softwareVersion: "2.1.0",
+            applicationCategory: "BusinessApplication",
+            operatingSystem: "WordPress 5.6+",
+            downloadUrl: "downloads/content-bridge-2.1.0.zip",
+            description: "افزونه اتصال امن وردپرس به فرایند تولید و انتشار محتوا با پشتیبانی از سئو، تصویر، دسته‌بندی، FAQ و جلوگیری از انتشار تکراری.",
+            author: { "@type": "Organization", name: "ویرا وب آریا" },
+            license: "https://www.gnu.org/licenses/gpl-2.0.html",
           }),
         }}
       />
@@ -222,6 +239,7 @@ export default function Home() {
           <div className="nav-links">
             <a href="#process">فرایند</a>
             <a href="#features">امکانات</a>
+            <a href="#download-plugin">افزونه</a>
             <a href="#pricing">پلن‌ها</a>
             <a href="#faq">پرسش‌ها</a>
           </div>
@@ -349,6 +367,25 @@ export default function Home() {
               <div className="custom-site-tags"><span>اسکریپت اتصال اختصاصی</span><span>نگاشت فیلدها و API</span><span>کنترل انتشار و تکرار</span><span>تست و عیب‌یابی روی سرور</span></div>
             </div>
             <a className="custom-site-link" href="#contact">نیازسنجی فنی <span aria-hidden="true">←</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section className="section plugin-download-section" id="download-plugin">
+        <div className="container">
+          <div className="plugin-download-card">
+            <div className="plugin-download-icon" aria-hidden="true"><span>CB</span><small>WP</small></div>
+            <div className="plugin-download-copy">
+              <span className="section-label">افزونه رسمی وردپرس</span>
+              <h2>اتصال امن سایت به خط تولید و انتشار محتوا.</h2>
+              <p>نسخه ۲.۱.۰ مقاله، تصویر شاخص، دسته و تگ، فیلدهای کامل سئو و FAQ را از مسیر امن دریافت می‌کند؛ انتشار دوباره نیز همان مطلب را به‌روزرسانی می‌کند.</p>
+              <div className="plugin-download-tags"><span>REST API امن</span><span>ضدتکرار</span><span>Yoast و Rank Math</span><span>گزارش و عیب‌یابی</span></div>
+            </div>
+            <div className="plugin-download-action">
+              <span className="plugin-version">نسخه ۲.۱.۰</span>
+              <a className="button plugin-download-button" href="downloads/content-bridge-2.1.0.zip" download>دانلود افزونه <span aria-hidden="true">↓</span></a>
+              <small>WordPress 5.6+ · PHP 7.4+</small>
+            </div>
           </div>
         </div>
       </section>

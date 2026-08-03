@@ -18,6 +18,8 @@ export async function generateMetadata(): Promise<Metadata> {
       "automated blog writing",
       "AI article publishing",
       "WordPress SEO automation",
+      "Content Bridge plugin download",
+      "WordPress content automation plugin",
       "managed content engine",
       "custom website content automation",
       "custom publishing integration script",

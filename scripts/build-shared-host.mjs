@@ -4,6 +4,7 @@ import path from "node:path";
 const projectDir = process.cwd();
 const outputDir = path.join(projectDir, "releases", "content-bridge-shared-host");
 const assetsDir = path.join(outputDir, "assets");
+const downloadsDir = path.join(outputDir, "downloads");
 const devOrigin = process.env.CONTENT_BRIDGE_RENDER_ORIGIN || "http://localhost:3000";
 
 async function fetchPage(route) {
@@ -75,7 +76,7 @@ const siteJs = `(() => {
   });
 
   const revealElements = document.querySelectorAll(
-    ".section-heading, .problem-grid article, .process-item, .feature-card, .promise-card, .custom-site-card, .price-card, .geo-card, .faq-intro, .faq-list article, .contact-copy, .contact-form"
+    ".section-heading, .problem-grid article, .process-item, .feature-card, .promise-card, .custom-site-card, .plugin-download-card, .price-card, .geo-card, .faq-intro, .faq-list article, .contact-copy, .contact-form"
   );
   if ("IntersectionObserver" in window) {
     revealElements.forEach((element) => element.classList.add("motion-ready"));
@@ -413,6 +414,8 @@ const installText = `راهنمای نصب Content Bridge روی هاست اشت
 
 5) فایل‌های robots.txt و sitemap.xml به‌صورت خودکار دامنه و پوشه نصب را تشخیص می‌دهند.
 
+6) فایل نصب افزونه وردپرس در مسیر downloads/content-bridge-2.1.0.zip داخل همین بسته قرار دارد.
+
 نکات مهم
 ---------
 - هیچ فونت، اسکریپت، تصویر یا CDN خارجی استفاده نشده است؛ ظاهر سایت در اینترنت ملی نیز کامل بارگذاری می‌شود.
@@ -424,6 +427,7 @@ const installText = `راهنمای نصب Content Bridge روی هاست اشت
 await rm(outputDir, { recursive: true, force: true });
 await mkdir(path.join(outputDir, "en"), { recursive: true });
 await mkdir(assetsDir, { recursive: true });
+await mkdir(downloadsDir, { recursive: true });
 
 const [faSource, enSource] = await Promise.all([fetchPage("/"), fetchPage("/en")]);
 await writeFile(path.join(outputDir, "index.php"), cleanHtml(faSource, "fa"), "utf8");
@@ -443,6 +447,7 @@ for (const name of assetNames.filter((name) => /\.woff2?$/.test(name))) {
 }
 await cp(path.join(projectDir, "public", "og.png"), path.join(assetsDir, "og.png"));
 await cp(path.join(projectDir, "public", "og-en.png"), path.join(assetsDir, "og-en.png"));
+await cp(path.join(projectDir, "public", "downloads", "content-bridge-2.1.0.zip"), path.join(downloadsDir, "content-bridge-2.1.0.zip"));
 
 await writeFile(path.join(outputDir, "_bootstrap.php"), bootstrapPhp, "utf8");
 await writeFile(path.join(outputDir, "config.php"), configPhp, "utf8");
