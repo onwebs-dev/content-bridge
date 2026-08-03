@@ -43,7 +43,7 @@ function cleanHtml(source, locale) {
   }
 
   html = html
-    .replace('src="/banner-examples.png"', `src="${assetPrefix}banner-examples.png"`)
+    .replace('src="/banner-examples.webp"', `src="${assetPrefix}banner-examples.webp"`)
     .replace("http://localhost:3000/og-en.png", `<?= cb_e(${imagePhp}) ?>`)
     .replace("http://localhost:3000/og.png", `<?= cb_e(${imagePhp}) ?>`)
     .replace(/<meta property="og:url" content="http:\/\/localhost:3000(?:\/en)?"\/>/, `<meta property="og:url" content="<?= cb_e(${pageUrlPhp}) ?>"/>`)
@@ -448,7 +448,7 @@ for (const name of assetNames.filter((name) => /\.woff2?$/.test(name))) {
 }
 await cp(path.join(projectDir, "public", "og.png"), path.join(assetsDir, "og.png"));
 await cp(path.join(projectDir, "public", "og-en.png"), path.join(assetsDir, "og-en.png"));
-await cp(path.join(projectDir, "public", "banner-examples.png"), path.join(assetsDir, "banner-examples.png"));
+await cp(path.join(projectDir, "public", "banner-examples.webp"), path.join(assetsDir, "banner-examples.webp"));
 await cp(path.join(projectDir, "public", "downloads", "content-bridge-2.1.0.zip"), path.join(downloadsDir, "content-bridge-2.1.0.zip"));
 
 await writeFile(path.join(outputDir, "_bootstrap.php"), bootstrapPhp, "utf8");

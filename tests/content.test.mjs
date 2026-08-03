@@ -36,7 +36,7 @@ test("keeps the Persian and English sales messages aligned", async () => {
   assert.match(english, /The first six months/);
   assert.match(english, /79\.5%/);
   await access(new URL("public/downloads/content-bridge-2.1.0.zip", projectRoot));
-  await access(new URL("public/banner-examples.png", projectRoot));
+  await access(new URL("public/banner-examples.webp", projectRoot));
 });
 
 test("includes bilingual SEO and local shared-host support", async () => {
@@ -56,5 +56,5 @@ test("includes bilingual SEO and local shared-host support", async () => {
   assert.match(builder, /site\.css/);
   assert.match(builder, /smtp_password/);
   assert.match(builder, /downloadsDir/);
-  assert.match(builder, /banner-examples\.png/);
+  assert.match(builder, /banner-examples\.webp/);
 });

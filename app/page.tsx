@@ -545,7 +545,7 @@ export default function Home() {
 
           <figure className="banner-samples">
             <div className="banner-samples-copy"><span className="section-label">ارزش بصری پلن حرفه‌ای</span><h3>برای هر مقاله یک بنر تازه، در یک هویت ثابت.</h3><p>موضوع و ترکیب‌بندی تغییر می‌کند؛ پالت، کیفیت و زبان بصری برند شما ثابت می‌ماند.</p></div>
-            <img src="/banner-examples.png" alt="سه نمونه بنر اختصاصی برای ممیزی سایت، خوشه‌بندی کلمات کلیدی و انتشار چندکاناله" width="1823" height="863" loading="lazy" />
+            <img src="/banner-examples.webp" alt="سه نمونه بنر اختصاصی برای ممیزی سایت، خوشه‌بندی کلمات کلیدی و انتشار چندکاناله" width="1823" height="863" loading="lazy" />
             <figcaption>نمونه جهت نمایش سطح طراحی است؛ کیت واقعی از رنگ، فونت و قالب سایت هر برند ساخته می‌شود.</figcaption>
           </figure>
 
