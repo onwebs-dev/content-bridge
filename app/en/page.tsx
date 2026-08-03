@@ -50,7 +50,6 @@ const faqs = [
   { q: "Which WordPress SEO plugins are supported?", a: "Content Bridge writes the correct fields for Yoast, Rank Math, SEOPress and All in One SEO." },
   { q: "How many articles will it publish each month?", a: "There is no reckless default. We recommend cadence from your domain authority, competition, existing content and crawl capacity." },
   { q: "What does the GEO add-on include?", a: "It shapes content for generative and answer engines using direct answers, question-led headings, clear entities, structured data and self-contained quotable passages." },
-  { q: "Do you guarantee rankings or traffic?", a: "No credible provider can. We guarantee the process we control: sound strategy, consistent execution, complete publishing and transparent reporting." },
 ];
 
 type FormStatus = "idle" | "sending" | "success" | "error";
@@ -171,7 +170,7 @@ export default function EnglishHome() {
         <div className="container">
           <div className="section-heading centered"><span className="section-label">The details that matter</span><h2>All the small content tasks your team no longer has to carry.</h2><p>From choosing the topic to confirming publication, every step is defined, visible and adapted to your WordPress site.</p></div>
           <div className="feature-grid">{features.map((feature) => <article className="feature-card" key={feature.title}><span className="feature-icon">{feature.icon}</span><h3>{feature.title}</h3><p>{feature.text}</p></article>)}</div>
-          <div className="promise-card"><div className="promise-mark" aria-hidden="true">“</div><div><span className="section-label">Our honest promise</span><h3>We do not guarantee rankings. We guarantee a sound process and consistent execution.</h3></div><p>No healthy SEO service can promise Google's outcome. We build the strategy, content infrastructure and publishing standards that can be controlled and measured.</p></div>
+          <div className="promise-card"><div className="promise-mark" aria-hidden="true">“</div><div><span className="section-label">Clarity from day one</span><h3>See the content roadmap and monthly deliverables before work begins.</h3></div><p>Topics, publishing dates, content status and delivery reports stay visible—so your team always knows what is happening, why it matters and what comes next.</p></div>
           <div className="custom-site-card"><div className="custom-site-code" aria-hidden="true"><span>&lt;/&gt;</span><i /><i /><i /></div><div className="custom-site-copy"><span className="section-label">Not running WordPress?</span><h3>Custom-coded websites get a purpose-built script and integration setup.</h3><p>We review your architecture, APIs, authentication, database and content model, then develop and test publishing logic around your actual infrastructure.</p><div className="custom-site-tags"><span>Custom connector script</span><span>API and field mapping</span><span>Publishing and duplicate controls</span><span>Server-level testing</span></div></div><a className="custom-site-link" href="#contact">Technical discovery <span aria-hidden="true">→</span></a></div>
         </div>
       </section>

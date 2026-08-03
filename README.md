@@ -1,100 +1,123 @@
-# vinext-starter
+# Content Bridge
 
-A clean full-stack starter running on
-[vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
-Drizzle support.
+[فارسی](#نسخه-فارسی) · [English](#english)
 
-## Prerequisites
+## English
 
-- Node.js `>=22.13.0`
+Content Bridge is an open-source, bilingual sales landing page for a managed AI-assisted content operation. It presents content strategy, keyword planning, WordPress publishing, LinkedIn distribution, professional SEO, GEO services, and purpose-built integrations for custom-coded websites.
 
-## Quick Start
+**Live demo:** [content-bridge-fa.onwebs.chatgpt.site](https://content-bridge-fa.onwebs.chatgpt.site)
+
+### Highlights
+
+- Persian RTL and English LTR experiences
+- Responsive, accessible UI with lightweight motion
+- SEO metadata, canonical URLs, hreflang, sitemap, robots, Open Graph, and JSON-LD
+- Three monthly service plans plus an optional GEO add-on
+- Custom connector messaging for non-WordPress and custom-coded websites
+- Contact form with SMTP delivery
+- Self-hosted fonts and assets for restricted-network compatibility
+- A portable PHP package for Apache/LiteSpeed shared hosting and subdirectory installs
+
+### Stack
+
+- React 19 and Next.js-compatible routing
+- vinext and Vite
+- Cloudflare Worker runtime
+- TypeScript and CSS
+- Optional PHP shared-host export
+
+### Local development
+
+Requirements: Node.js 22.13 or newer.
 
 ```bash
+git clone https://github.com/onwebs-dev/content-bridge.git
+cd content-bridge
 npm install
 npm run dev
+```
+
+Open `http://localhost:3000`. Run the production checks with:
+
+```bash
+npm test
+```
+
+### Email configuration
+
+The form reads the SMTP password from `SMTP_PASSWORD`; copy `.dev.vars.example` to `.dev.vars` for local work and never commit the real password. Host, sender, and recipient defaults live in `worker/index.ts` and can be replaced for your deployment.
+
+For the PHP shared-host build, keep the development server running, build the app, and run:
+
+```bash
 npm run build
+npm run build:shared-host
 ```
 
-This starter does not use `wrangler.jsonc`.
+Then set the real SMTP password only in the generated `config.php` on your server. The export detects its installation path automatically, including subdirectories.
 
-## Included Shape
+### Contributing
 
-- edit site code under `app/`
-- `.openai/hosting.json` declares optional Sites D1 and R2 bindings
-- `vite.config.ts` simulates declared bindings for local development
-- `db/schema.ts` starts intentionally empty
-- `examples/d1/` contains an optional D1 example surface
-- `drizzle.config.ts` supports local migration generation when needed
+Issues and pull requests are welcome. Read [CONTRIBUTING.md](./CONTRIBUTING.md) before sending a change.
 
-## Workspace Auth Headers
+### License
 
-Signed-in visitors receive both `oai-authenticated-user-id` and `oai-authenticated-user-email`. Private Sites require every visitor to sign in; public Sites may also have anonymous visitors, for whom neither header is present.
+Released under the [MIT License](./LICENSE) by [ONWEBS](https://github.com/onwebs-dev) and Sepehr Fathi.
 
-The user ID is stable for the same user on the same Site and different across Sites. Email and name are intended for display or contact purposes.
+---
 
-SIWC-authenticated workspace sites may also receive
-`oai-authenticated-user-full-name` when the user's SIWC profile has a non-empty
-`name` claim. The full-name value is percent-encoded UTF-8 and is accompanied by
-`oai-authenticated-user-full-name-encoding: percent-encoded-utf-8`.
+## نسخه فارسی
 
-Treat the full name as optional and fall back to email when it is absent:
+Content Bridge یک لندینگ فروش دوزبانه و متن‌باز برای سرویس مدیریت و اتوماسیون محتوا با کمک هوش مصنوعی است. این پروژه خدمات استراتژی محتوا، تحقیق کلمات کلیدی، انتشار وردپرس، توزیع در لینکدین، سئوی حرفه‌ای، GEO و اتصال اختصاصی سایت‌های کدنویسی‌شده را معرفی می‌کند.
 
-```tsx
-import { headers } from "next/headers";
+**نسخه آنلاین:** [content-bridge-fa.onwebs.chatgpt.site](https://content-bridge-fa.onwebs.chatgpt.site)
 
-export default async function Home() {
-  const requestHeaders = await headers();
-  const userId = requestHeaders.get("oai-authenticated-user-id");
-  const email = requestHeaders.get("oai-authenticated-user-email");
-  const encodedFullName = requestHeaders.get("oai-authenticated-user-full-name");
-  const fullName =
-    encodedFullName &&
-    requestHeaders.get("oai-authenticated-user-full-name-encoding") ===
-      "percent-encoded-utf-8"
-      ? decodeURIComponent(encodedFullName)
-      : null;
+### امکانات اصلی
 
-  const displayName = fullName ?? email;
-  // ...
-}
+- تجربه فارسی راست‌به‌چپ و انگلیسی چپ‌به‌راست
+- رابط واکنش‌گرا و دسترس‌پذیر با موشن سبک
+- متادیتای SEO، آدرس canonical، تگ hreflang، سایت‌مپ، robots، Open Graph و JSON-LD
+- سه پلن ماهانه و افزونه اختیاری GEO
+- معرفی اتصال اختصاصی برای سایت‌های کدنویسی‌شده و غیروردپرسی
+- فرم تماس با ارسال SMTP
+- فونت و دارایی‌های کاملاً محلی برای عملکرد مناسب در شبکه‌های محدود
+- خروجی PHP قابل نصب روی هاست اشتراکی و زیردایرکتوری
+
+### اجرای محلی
+
+به Node.js نسخه 22.13 یا جدیدتر نیاز دارید.
+
+```bash
+git clone https://github.com/onwebs-dev/content-bridge.git
+cd content-bridge
+npm install
+npm run dev
 ```
 
-## Optional Dispatch-Owned ChatGPT Sign-In
+سایت در `http://localhost:3000` در دسترس است. برای بررسی نسخه نهایی اجرا کنید:
 
-Import the ready-to-use helpers from `app/chatgpt-auth.ts` when the site needs
-optional or required ChatGPT sign-in:
+```bash
+npm test
+```
 
-- Use `getChatGPTUser()` for optional signed-in UI.
-- Use `requireChatGPTUser(returnTo)` for server-rendered pages that should send
-  anonymous visitors through Sign in with ChatGPT.
-- Use `chatGPTSignInPath(returnTo)` and `chatGPTSignOutPath(returnTo)` for
-  browser links or actions.
-- Pass a same-origin relative `returnTo` path for the destination after sign-in
-  or sign-out. The helper validates and safely encodes it.
-- Mark protected pages with `export const dynamic = "force-dynamic"` because
-  they depend on per-request identity headers.
+### تنظیم ایمیل
 
-Dispatch owns `/signin-with-chatgpt`, `/signout-with-chatgpt`, `/callback`, the
-OAuth cookies, and identity header injection. Do not implement app routes for
-those reserved paths. Routes that do not import and call the helper remain
-anonymous-compatible.
+رمز SMTP از متغیر `SMTP_PASSWORD` خوانده می‌شود. برای توسعه محلی فایل `.dev.vars.example` را با نام `.dev.vars` کپی کنید و هیچ‌وقت رمز واقعی را commit نکنید. تنظیمات میزبان، فرستنده و گیرنده در `worker/index.ts` قابل شخصی‌سازی است.
 
-SIWC establishes identity only; it does not prove workspace membership. Use the
-Sites hosting platform's access policy controls for workspace-wide restrictions,
-or enforce explicit server-side membership or allowlist checks.
+برای ساخت خروجی هاست اشتراکی، سرور توسعه را روشن نگه دارید و اجرا کنید:
 
-Use SIWC for account pages, user-specific dashboards, saved records, and write
-actions tied to the current ChatGPT user. Leave public content anonymous.
+```bash
+npm run build
+npm run build:shared-host
+```
 
-## Useful Commands
+رمز واقعی SMTP را فقط داخل فایل `config.php` تولیدشده روی سرور وارد کنید. خروجی، مسیر نصب و زیردایرکتوری را خودکار تشخیص می‌دهد.
 
-- `npm run dev`: start local development
-- `npm run build`: verify the vinext build output
-- `npm test`: build the starter and verify its rendered loading skeleton
-- `npm run db:generate`: generate Drizzle migrations after schema changes
+### مشارکت
 
-## Learn More
+Issue و Pull Request پذیرفته می‌شود. قبل از ارسال تغییر، [راهنمای مشارکت](./CONTRIBUTING.md) را بخوانید.
 
-- [vinext Documentation](https://github.com/cloudflare/vinext)
-- [Drizzle D1 Guide](https://orm.drizzle.team/docs/get-started/d1-new)
+### مجوز
+
+این پروژه توسط [ONWEBS](https://github.com/onwebs-dev) و سپهر فتحی با [مجوز MIT](./LICENSE) منتشر شده است.

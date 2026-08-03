@@ -1,7 +1,17 @@
 {
-  "name": "site-creator-vinext-starter",
+  "name": "content-bridge-landing-page",
   "version": "0.1.0",
   "private": true,
+  "description": "Open-source bilingual landing page for Content Bridge, an AI-assisted content automation service.",
+  "license": "MIT",
+  "homepage": "https://content-bridge-fa.onwebs.chatgpt.site",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onwebs-dev/content-bridge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/onwebs-dev/content-bridge/issues"
+  },
   "engines": {
     "node": ">=22.13.0"
   },
@@ -9,7 +19,8 @@
     "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
     "build": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
     "start": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext start",
-    "test": "npm run build && node --test tests/rendered-html.test.mjs",
+    "test": "npm run build && node --test tests/content.test.mjs",
+    "build:shared-host": "node scripts/build-shared-host.mjs",
     "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
     "db:generate": "drizzle-kit generate"
   },
