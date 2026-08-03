@@ -19,6 +19,8 @@ export async function generateMetadata(): Promise<Metadata> {
       "AI article publishing",
       "WordPress SEO automation",
       "managed content engine",
+      "custom website content automation",
+      "custom publishing integration script",
     ],
     alternates: {
       canonical: pageUrl,

@@ -75,7 +75,7 @@ const siteJs = `(() => {
   });
 
   const revealElements = document.querySelectorAll(
-    ".section-heading, .problem-grid article, .process-item, .feature-card, .promise-card, .price-card, .geo-card, .faq-intro, .faq-list article, .contact-copy, .contact-form"
+    ".section-heading, .problem-grid article, .process-item, .feature-card, .promise-card, .custom-site-card, .price-card, .geo-card, .faq-intro, .faq-list article, .contact-copy, .contact-form"
   );
   if ("IntersectionObserver" in window) {
     revealElements.forEach((element) => element.classList.add("motion-ready"));

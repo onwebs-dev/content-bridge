@@ -45,6 +45,7 @@ const plans = [
 ];
 
 const faqs = [
+  { q: "What if our website is custom-coded rather than WordPress?", a: "We review the project's architecture and build the connector script, authentication, field mapping and publishing logic specifically for that website." },
   { q: "Is this just another AI content generator?", a: "No. A generator writes text. Content Bridge combines human-led strategy, keyword research, editorial planning, WordPress automation and ongoing oversight." },
   { q: "Which WordPress SEO plugins are supported?", a: "Content Bridge writes the correct fields for Yoast, Rank Math, SEOPress and All in One SEO." },
   { q: "How many articles will it publish each month?", a: "There is no reckless default. We recommend cadence from your domain authority, competition, existing content and crawl capacity." },
@@ -100,7 +101,7 @@ export default function EnglishHome() {
         alternateName: "Managed AI Content Automation",
         description: "A managed content engine combining strategy, keyword research, editorial planning, automated article creation, WordPress publishing and SEO completion.",
         provider: { "@type": "Organization", name: "Vira Web Aria", email: "ceo@onwebs.ir" },
-        serviceType: ["Automated content creation", "AI content automation", "WordPress article publishing", "Content SEO", "GEO"],
+        serviceType: ["Automated content creation", "AI content automation", "WordPress article publishing", "Custom-coded website content automation", "Custom integration scripts", "Content SEO", "GEO"],
         offers: plans.map((plan, index) => ({ "@type": "Offer", name: `${plan.name} Content Bridge plan`, price: ["50000000", "100000000", "150000000"][index], priceCurrency: "IRR", description: plan.description })),
       }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
@@ -171,6 +172,7 @@ export default function EnglishHome() {
           <div className="section-heading centered"><span className="section-label">The details that matter</span><h2>All the small content tasks your team no longer has to carry.</h2><p>From choosing the topic to confirming publication, every step is defined, visible and adapted to your WordPress site.</p></div>
           <div className="feature-grid">{features.map((feature) => <article className="feature-card" key={feature.title}><span className="feature-icon">{feature.icon}</span><h3>{feature.title}</h3><p>{feature.text}</p></article>)}</div>
           <div className="promise-card"><div className="promise-mark" aria-hidden="true">“</div><div><span className="section-label">Our honest promise</span><h3>We do not guarantee rankings. We guarantee a sound process and consistent execution.</h3></div><p>No healthy SEO service can promise Google's outcome. We build the strategy, content infrastructure and publishing standards that can be controlled and measured.</p></div>
+          <div className="custom-site-card"><div className="custom-site-code" aria-hidden="true"><span>&lt;/&gt;</span><i /><i /><i /></div><div className="custom-site-copy"><span className="section-label">Not running WordPress?</span><h3>Custom-coded websites get a purpose-built script and integration setup.</h3><p>We review your architecture, APIs, authentication, database and content model, then develop and test publishing logic around your actual infrastructure.</p><div className="custom-site-tags"><span>Custom connector script</span><span>API and field mapping</span><span>Publishing and duplicate controls</span><span>Server-level testing</span></div></div><a className="custom-site-link" href="#contact">Technical discovery <span aria-hidden="true">→</span></a></div>
         </div>
       </section>
 

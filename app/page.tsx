@@ -110,6 +110,10 @@ const plans = [
 
 const faqs = [
   {
+    q: "اگر سایت ما وردپرسی یا CMS آماده نباشد چه می‌شود؟",
+    a: "برای سایت‌های کدنویسی‌شده، معماری پروژه بررسی و اسکریپت اتصال، احراز هویت، نگاشت فیلدها و منطق انتشار دقیقاً متناسب با همان سایت طراحی و تنظیم می‌شود.",
+  },
+  {
     q: "آیا فقط یک ابزار تولید محتوا می‌خریم؟",
     a: "خیر. ارزش اصلی در شناخت سایت، طراحی برنامه و نظارت انسانی است. اتصال و انتشار خودکار، مرحله آخر این فرایند است.",
   },
@@ -188,7 +192,7 @@ export default function Home() {
             description: "استراتژی محتوا، تحقیق کلمات کلیدی، برنامه‌ریزی و تولید و انتشار خودکار مقاله در وردپرس با تکمیل فیلدهای سئو.",
             provider: { "@type": "Organization", name: "ویرا وب آریا", email: "ceo@onwebs.ir" },
             areaServed: "IR",
-            serviceType: ["تولید محتوای خودکار", "اتوماسیون محتوای وردپرس", "سئو محتوا", "GEO"],
+            serviceType: ["تولید محتوای خودکار", "اتوماسیون محتوای وردپرس", "اتوماسیون محتوای سایت کدنویسی‌شده", "اسکریپت اتصال اختصاصی", "سئو محتوا", "GEO"],
             offers: plans.map((plan, index) => ({
               "@type": "Offer",
               name: `پلن ${plan.name} Content Bridge`,
@@ -339,6 +343,16 @@ export default function Home() {
             <div className="promise-mark" aria-hidden="true">“</div>
             <div><span className="section-label">قول صادقانه ما</span><h3>رتبه تضمین نمی‌کنیم؛ فرایند درست و اجرای منظم را تضمین می‌کنیم.</h3></div>
             <p>هیچ ابزار سالمی نمی‌تواند رتبه گوگل را قول بدهد. ما زیرساخت، محتوا و استانداردهایی را می‌سازیم که قابل کنترل و اندازه‌گیری‌اند.</p>
+          </div>
+          <div className="custom-site-card">
+            <div className="custom-site-code" aria-hidden="true"><span>&lt;/&gt;</span><i /><i /><i /></div>
+            <div className="custom-site-copy">
+              <span className="section-label">سایت شما وردپرسی نیست؟</span>
+              <h3>برای سایت‌های کدنویسی‌شده، اسکریپت و تنظیمات اختصاصی انجام می‌شود.</h3>
+              <p>معماری سایت، API، روش احراز هویت، دیتابیس و مدل محتوای پروژه بررسی می‌شود؛ سپس اتصال و منطق انتشار متناسب با همان زیرساخت توسعه و آزمایش می‌شود.</p>
+              <div className="custom-site-tags"><span>اسکریپت اتصال اختصاصی</span><span>نگاشت فیلدها و API</span><span>کنترل انتشار و تکرار</span><span>تست و عیب‌یابی روی سرور</span></div>
+            </div>
+            <a className="custom-site-link" href="#contact">نیازسنجی فنی <span aria-hidden="true">←</span></a>
           </div>
         </div>
       </section>
